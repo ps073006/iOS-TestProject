@@ -34,7 +34,7 @@ import CheckBox from 'react-native-check-box';
 import Icon from 'react-native-vector-icons/Entypo';
 import realm from './realm';
 import {dataRegion,dataLocal,dataSide,dataWeather,dataYesNo} from './agencyInfo.js';
-
+import Upload from '../components/Upload';
 
 const columns = [
   {
@@ -86,6 +86,189 @@ const hazardType = [
    {label: 'R', value: 'R' },
    {label: 'T', value: 'T' }
  ];
+ 
+ const formSourceA = [
+   {value: '3', label: '3 : 0-5%'},
+   {value: '9', label: '9 : 6-25%'},
+   {value: '27', label: '27 : 26-50%'},
+   {value: '81', label: '81 : 51-100%'}
+ ];
+ 
+ const formSourceB = [
+   {value: '3', label: '3 : Visible crack or slight deposit of material / minor erosion'},
+   {value: '9', label: '9 : 1 inch offset, or 6-inch deposit of material / major erosion will affect travel in < 5 years'},
+   {value: '27', label: '27 : 2-inch offset or 12-inch deposity / mod. erosion impacting travel annually'},
+   {value: '81', label: '81 : 4-inch offset or 24-inch deposity / severe erosion impacting travel consistently'}
+ ];
+ 
+ const formSourceC = [
+   {value: '3', label: '3 : 25 ft'},
+   {value: '9', label: '9 : 100 ft'},
+   {value: '27', label: '27 : 225 ft'},
+   {value: '81', label: '81 : 400 ft'}
+ ];
+ 
+ const formSourceD = [
+   {value: '3', label: '3 : Good'},
+   {value: '9', label: '9 : Moderate'},
+   {value: '27', label: '27 : Limited'},
+   {value: '81', label: '81 : No Catchment'}
+ ];
+ 
+ const formSourceE = [
+   {value: '3', label: '3 : Few Falls'},
+   {value: '9', label: '9 : Occasional Falls'},
+   {value: '27', label: '27 : Many Falls'},
+   {value: '81', label: '81 : Constant Falls'}
+ ];
+ 
+ const formSourceF = [
+   {value: '3', label: '3 : 1ft or 3yd^3'},
+   {value: '9', label: '9 : 2ft or 6yd^3'},
+   {value: '27', label: '27 : 3ft or 9yd^3'},
+   {value: '81', label: '81 : 4ft or 12yd^3'}
+ ];
+ 
+ const formSourceG = [
+   {value: '3', label: '3 : Full use continues with minor delay'},
+   {value: '9', label: '9 : Partial use remains Use modification required, short (3mi / 30min.) detour available'},
+   {value: '27', label: '27 : Use is blocked - long (>30min.) detour available or less than 1 day closure'},
+   {value: '81', label: '81 : Use is blocked - no detour available or closure longer than 1 week'}
+ ];
+ 
+ const formSourceH = [
+   {value: '3', label: '3 : 50 Rarely Used Insignificant economic / rec. importance'},
+   {value: '9', label: '9 : 200 Occasionally used Minor economic / rec. importance'},
+   {value: '27', label: '27 : 450 Frequently used Moderate economic / rec. importance'},
+   {value: '81', label: '81 : 800 Constantly used Significant economic / rec. importance'}
+ ];
+ 
+ const formSourceI = [
+   {value: '3', label: '3 : Slope appears dry or well drained; surface runoff well controlled'},
+   {value: '9', label: '9 : Intermittent water on slope; mod. not well drained; or surface runoff moderately controlled'},
+   {value: '27', label: '27 : Water usually on slope; poorly drained; or surface runoff poorly controlled'},
+   {value: '81', label: '81 : Water always on slope; very poorly drained; or surface water runoff control not present'}
+ ];
+ 
+ const formSourceJ = [
+   {value: '3', label: '3 : 0-10"'},
+   {value: '9', label: '9 : 10-30"'},
+   {value: '27', label: '27 : 30-60"'},
+   {value: '81', label: '81 : 60"+'}
+ ];
+ 
+ const formSourceK = [
+   {value: '3', label: '3 : 25ft'},
+   {value: '9', label: '9 : 50ft'},
+   {value: '27', label: '27 : 75ft'},
+   {value: '81', label: '81 : 100ft'}
+ ];
+ 
+ const formSourceL = [
+   {value: '3', label: '3 : Unfrozen / Thaw Stable'},
+   {value: '9', label: '9 : Slightly Thaw Unstable'},
+   {value: '27', label: '27 : Moderately Thaw Unstable'},
+   {value: '81', label: '81 : Highly Thaw Unstable'}
+ ];
+ 
+ const formSourceM = [
+   {value: '3', label: '3 : Every 10 years'},
+   {value: '9', label: '9 : Every 5 years'},
+   {value: '27', label: '27 : Every 2 years'},
+   {value: '81', label: '81 : Every year'}
+ ];
+ 
+ const formSourceN = [
+   {value: '3', label: '3 : Minor movement or sporadic creep'},
+   {value: '9', label: '9 : Up to 1 inch annually or steady annual creep'},
+   {value: '27', label: '27 : Up to 3 inches per event, one event per year'},
+   {value: '81', label: '81 : >3" per event, >6" annually, more than 1 event per year (includes all debris flows)'}
+ ];
+ 
+ const formSourceO = [
+   {value: '3', label: '3 : Normal, scheduled maintenance'},
+   {value: '9', label: '9 : Patrols after every storm event'},
+   {value: '27', label: '27 : Routine seasonal patrols'},
+   {value: '81', label: '81 : Year round patrols'}
+ ];
+ 
+ const formSourceP = [
+   {value: '3', label: '3 : favorable'},
+   {value: '9', label: '9 : random'},
+   {value: '27', label: '27 : Discontinuous adverse'},
+   {value: '81', label: '81 : Continuous adverse'}
+ ];
+ 
+ const formSourceQ = [
+   {value: '3', label: '3 : Rough / Irregular'},
+   {value: '9', label: '9 : Undulating'},
+   {value: '27', label: '27 : Planar'},
+   {value: '81', label: '81 : Clay infilled / Slickensided'}
+ ];
+
+ const formSourceR = [
+   {value: '3', label: '3 : Few differential erosion features'},
+   {value: '9', label: '9 : Occasional differential erosion features'},
+   {value: '27', label: '27 : Many differential erosion features'},
+   {value: '81', label: '81 : Major differential erosion features'}
+ ];
+ 
+ const formSourceS = [
+   {value: '3', label: '3 : Small difference'},
+   {value: '9', label: '9 : Moderate difference'},
+   {value: '27', label: '27 : Large difference'},
+   {value: '81', label: '81 : Extreme difference'}
+ ];
+ 
+ const formSourceV = [
+   {value: '3', label: '3 : 36ft <br />14ft'},
+   {value: '9', label: '9 : 28ft <br />10ft'},
+   {value: '27', label: '27 : 20ft <br />6ft'},
+   {value: '81', label: '81 : 12ft <br />2ft'}
+ ];
+ 
+ const formSourceW = [
+   {value: '3', label: '3 : 12.5% of the time'},
+   {value: '9', label: '9 : 25% of the time'},
+   {value: '27', label: '27 : 37.5% of the time'},
+   {value: '81', label: '81 : 50% of the time'}
+ ];
+ 
+ const formSourceX = [
+   {value: '3', label: '3 : Adequate, 100% of the low design value'},
+   {value: '9', label: '9 : Moderate, 80% of the low design value'},
+   {value: '27', label: '27 : Limited, 60% of the low design value'},
+   {value: '81', label: '81 : Very limited, 40% of the low design value'}
+ ];
+ 
+ const formSourceY = [
+   {value: '3', label: '3 : No R/W implications'},
+   {value: '9', label: '9 : Minor effects beyond R/W'},
+   {value: '27', label: '27 : Private property, no structures affected'},
+   {value: '81', label: '81 : Structures, roads, RR, utilities, or Parks affected'}
+ ];
+ 
+ const formSourceZ = [
+   {value: '3', label: '3 : None/No Potential to Cause Effects'},
+   {value: '9', label: '9 : Likely to Effect/No Hist. Prop. Affected'},
+   {value: '27', label: '27 : Likely to adversely Affect/Finding of No Adverse Effect'},
+   {value: '81', label: '81 : Current adverse effects/Adverse Effect'}
+ ];
+ 
+ const formSourceAA = [
+   {value: '3', label: '3 : Routine Effort / In-House'},
+   {value: '9', label: '9 : In-House maint. / special project'},
+   {value: '27', label: '27 : Specialized equip. / contracts'},
+   {value: '81', label: '81 : Complex / dangerous effort / location / contract'}
+ ];
+
+ const formSourceBB = [
+   {value: '3', label: '3 : $0-2k'},
+   {value: '9', label: '9 : $2-25k'},
+   {value: '27', label: '27 : $25-100k'},
+   {value: '81', label: '81 : $100k'}
+ ];
+ 
 
  //var mgmt_area_regex = /^.{1,120}$/;
  //var mgmt_area_format_S = "Management Area cannot be empty and must be shorter than 120 characters.";
@@ -111,7 +294,7 @@ const hazardType = [
  var road_or_trail_format_S = "Road/Trail must have a value.";
 
  var road_trail_class_regex = /^.{1,30}$/;
- var road_trail_class_format_S = "Road/Trail Class cannot be empty and must be shorter than 30 characters.";
+ var road_trail_class_format_S = "Road/Trail Class must be shorter than 30 characters.";
 
  var rater_regex = /^.{1,30}$/;
  var rater_format_S = "Rater cannot be empty and must be shorter than 30 characters.";
@@ -120,7 +303,7 @@ const hazardType = [
  var begin_mile_marker_format_S = "Beginning Mile Marker must have a decimal value.";
 
  var end_mile_marker_regex = /^\d*\.?\d+$/;
- var end_mile_marker_format_S = "Beginning Mile Marker must have a decimal value.";
+ var end_mile_marker_format_S = "Ending Mile Marker must have a decimal value.";
 
  var side_regex = /^.+$/;
  var side_format_S = "Side must have a value.";
@@ -178,17 +361,17 @@ const hazardType = [
  var maximum_ditch_depth_regex = /^\d*\.?\d+$/;
  var maximum_ditch_depth_format_S = "Ditch Depth maximum must have a decimal value.";
 
- var first_begin_ditch_slope_regex = /^\d+$/;
- var first_begin_ditch_slope_format_S = "Ditch Slope first begin must have an integer value.";
+ var first_begin_ditch_slope_regex = /^\d*\.?\d+$/;
+ var first_begin_ditch_slope_format_S = "Ditch Slope first begin must have a decimal value.";
 
- var first_end_ditch_slope_regex = /^\d+$/;
- var first_end_ditch_slope_format_S = "Ditch Slope first end must have an integer value.";
+ var first_end_ditch_slope_regex = /^\d*\.?\d+$/;
+ var first_end_ditch_slope_format_S = "Ditch Slope first end must have a decimal value.";
 
- var second_begin_ditch_slope_regex = /^\d+$/;
- var second_begin_ditch_slope_format_S = "Ditch Slope second begin must have an integer value.";
+ var second_begin_ditch_slope_regex = /^\d*\.?\d+$/;
+ var second_begin_ditch_slope_format_S = "Ditch Slope second begin must have a decimal value.";
 
- var second_end_ditch_slope_regex = /^\d+$/;
- var second_end_ditch_slope_format_S = "Ditch Slope second end must have an integer value.";
+ var second_end_ditch_slope_regex = /^\d*\.?\d+$/;
+ var second_end_ditch_slope_format_S = "Ditch Slope second end must have a decimal value.";
 
  var blk_size_regex = /^\d*\.?\d+$/;
  var blk_size_format_S = "Blk Size must have a decimal value.";
@@ -301,6 +484,9 @@ export default class EditSite extends Component {
 		const data = this.props.navigation.state.params;
 		//let data = realm.objects('SITE_INFORMATION').filtered('id='+parseInt(siteId));
 		
+		//rockfall landslide radio default
+		var rockfallLandslide = 'rockfall';
+		var rockLandKey = 0;
 		//hazardlinks
 		let dataHazardType = realm.objects('HAZARD_LINK').filtered('id='+ parseInt(data.hazardType));
 		var dataHazardtype = [];
@@ -332,31 +518,44 @@ export default class EditSite extends Component {
 		if(data.preliminaryRatingLandslideId > 0){
 			//LANDSLIDE_PRILIMINARY_RATING
 			let dataPrelimLandslideRating = realm.objects('LANDSLIDE_PRILIMINARY_RATING').filtered('id='+ parseInt(data.preliminaryRatingLandslideId));
-			
+			if(dataPrelimLandslideRating.length>0){
 			 	prelimLandslideRoadWidthAffected = dataPrelimLandslideRating[0].roadWidthAffected;
 				prelimLandslideSlideErosionEffects = dataPrelimLandslideRating[0].slideErosionEffects;
 				prelimLandslideLengthAffected = dataPrelimLandslideRating[0].lengthAffected;
 				
+			}
+			 	
 			  	prelimRatingLandslideTotal = isNaN(parseInt(prelimLandslideRoadWidthAffected)) ? 0 : parseInt(prelimLandslideRoadWidthAffected);
 			  	prelimRatingLandslideTotal += isNaN(parseInt(prelimLandslideSlideErosionEffects)) ? 0 : parseInt(prelimLandslideSlideErosionEffects);
 			  	prelimRatingLandslideTotal += isNaN(parseInt(prelimLandslideLengthAffected)) ? 0 : parseInt(prelimLandslideLengthAffected);
 			  	prelimRatingLandslideTotal += isNaN(parseInt(data.impactOnUse)) ? 0 : parseInt(data.impactOnUse);
-			  	prelimRatingLandslideTotal += isNaN(parseInt(data.aadtUsage)) ? 0 : parseInt(data.aadtUsage);
+		  	  
+			  	if(data.aadtUsageCalcCheckbox == true){
+		    	  	prelimRatingLandslideTotal += isNaN(parseInt(data.aadtUsage)) ? 0 : parseInt(data.aadtUsage);
+		  	  	}
+			  	//prelimRatingLandslideTotal += isNaN(parseInt(data.aadtUsage)) ? 0 : parseInt(data.aadtUsage);
 		
 			
 		}else{
 			//ROCKFALL_PRILIMINARY_RATING
 			let dataPrelimRockfallRating = realm.objects('ROCKFALL_PRILIMINARY_RATING').filtered('id='+ parseInt(data.preliminaryRatingRockfallId));
+			if(dataPrelimRockfallRating.length>0){
+				prelimRockfallDitchEff = dataPrelimRockfallRating[0].ditchEff;
+				prelimRockfallRockfallHistory = dataPrelimRockfallRating[0].rockfallHistory;
+				prelimRockfallBlockSizeEventVol = dataPrelimRockfallRating[0].blockSizeEventVol;
 			
-			prelimRockfallDitchEff = dataPrelimRockfallRating[0].ditchEff;
-			prelimRockfallRockfallHistory = dataPrelimRockfallRating[0].rockfallHistory;
-			prelimRockfallBlockSizeEventVol = dataPrelimRockfallRating[0].blockSizeEventVol;
+			}
 			
 	  	  	prelimRatingRockfallRotal = isNaN(parseInt(prelimRockfallDitchEff)) ? 0 : parseInt(prelimRockfallDitchEff);
 	  	  	prelimRatingRockfallRotal += isNaN(parseInt(prelimRockfallRockfallHistory)) ? 0 : parseInt(prelimRockfallRockfallHistory);
 	  	  	prelimRatingRockfallRotal += isNaN(parseInt(prelimRockfallBlockSizeEventVol)) ? 0 : parseInt(prelimRockfallBlockSizeEventVol);
 	  	  	prelimRatingRockfallRotal += isNaN(parseInt(data.impactOnUse)) ? 0 : parseInt(data.impactOnUse);
-	  	  	prelimRatingRockfallRotal += isNaN(parseInt(data.aadtUsage)) ? 0 : parseInt(data.aadtUsage);
+			
+		  	if(data.aadtUsageCalcCheckbox == true){
+	    	  	prelimRatingRockfallRotal += isNaN(parseInt(data.aadtUsage)) ? 0 : parseInt(data.aadtUsage);
+	  	  	}
+			//alert(prelimRatingRockfallRotal);
+	  	  	//prelimRatingRockfallRotal += isNaN(parseInt(data.aadtUsage)) ? 0 : parseInt(data.aadtUsage);
 	
 		
 		}
@@ -376,10 +575,12 @@ export default class EditSite extends Component {
 		if(data.hazardRatingLandslideId > 0){
 			//ROCKFALL_PRILIMINARY_RATING
 			let dataHazardLandslideRating = realm.objects('LANDSLIDE_HAZARD_RATING').filtered('id='+ parseInt(data.hazardRatingLandslideId));
-		
-			hazardLandslideThawStability = dataHazardLandslideRating[0].thawStability;
-			hazardLandslideMaintFrequency = dataHazardLandslideRating[0].maintFrequency;
-			hazardLandslideMovementHistory = dataHazardLandslideRating[0].movementHistory;
+			if(dataHazardLandslideRating.length>0){
+				hazardLandslideThawStability = dataHazardLandslideRating[0].thawStability;
+				hazardLandslideMaintFrequency = dataHazardLandslideRating[0].maintFrequency;
+				hazardLandslideMovementHistory = dataHazardLandslideRating[0].movementHistory;
+			
+			}
 			
   			hazardRatingLandslideTotal = parseInt(prelimLandslideRoadWidthAffected) 
 			+ parseInt(prelimLandslideSlideErosionEffects)
@@ -391,16 +592,21 @@ export default class EditSite extends Component {
   			+ parseInt(hazardLandslideMaintFrequency) 
 			+ parseInt(hazardLandslideMovementHistory) ;
 			
+			//alert("id "+parseInt(data.hazardRatingLandslideId)+" diff"+parseInt(caseTwoDiffErosion)+"  "+hazardRatingRockfallTotal);
+		
+			
 		}else{
 			//ROCKFALL_HAZARD_RATING
 			let dataHazardRockfallRating = realm.objects('ROCKFALL_HAZARD_RATING').filtered('id='+ parseInt(data.hazardRatingRockfallId));
-			//let dataHazardRockfallRating = realm.objects('ROCKFALL_HAZARD_RATING').filtered('id="1"');
+			//let dataHazardRockfallRating = realm.objects('ROCKFALL_HAZARD_RATING').filtered('id="20"');
+			if(dataHazardRockfallRating.length>0){
+				hazardRockfallMaintFrequency = dataHazardRockfallRating[0].maintFrequency;
+				caseOneStrucCond = dataHazardRockfallRating[0].caseOneStrucCond;
+				caseOneRockFriction = dataHazardRockfallRating[0].caseOneRockFriction;
+				caseTwoStrucCondition = dataHazardRockfallRating[0].caseTwoStrucCondition;
+				caseTwoDiffErosion = dataHazardRockfallRating[0].caseTwoDiffErosion;
 			
-			hazardRockfallMaintFrequency = dataHazardRockfallRating[0].maintFrequency;
-			caseOneStrucCond = dataHazardRockfallRating[0].caseOneStrucCond;
-			caseOneRockFriction = dataHazardRockfallRating[0].caseOneRockFriction;
-			caseTwoStrucCondition = dataHazardRockfallRating[0].caseTwoStrucCondition;
-			caseTwoDiffErosion = dataHazardRockfallRating[0].caseTwoDiffErosion;
+			}
 			
 			hazardRatingRockfallTotal  += parseInt(prelimRockfallDitchEff) + parseInt(prelimRockfallRockfallHistory)
 			+ parseInt(prelimRockfallBlockSizeEventVol) + parseInt(data.slopeDrainage) 
@@ -415,9 +621,9 @@ export default class EditSite extends Component {
 			{
 				hazardRatingRockfallTotal += parseInt(caseTwoStrucCondition) + parseInt(caseTwoDiffErosion);
 			}
-			
-			}
+			//alert("id "+parseInt(data.hazardRatingRockfallId)+" diff"+parseInt(caseTwoDiffErosion)+"  "+hazardRatingRockfallTotal);
 		
+			}
 		
 		//alert(dataComment[0].comment +" "+ data.hazardRatingLandslideId)
 		var date = new Date();
@@ -430,15 +636,17 @@ export default class EditSite extends Component {
 			  ((date.getSeconds() < 10)?"0":"") + date.getSeconds();
   		var date = today+" "+timeNow;
 		
-		if(data.preliminaryRatingLandslideId > 0){
+		//setting rockfall landslide radiobutton
+		if(prelimLandslideLengthAffected > 0){
 			var rockfallLandslide = 'landslide';
 			var rockLandKey = 1;
 			//alert(rockfallLandslide)
-		}else if(data.preliminaryRatingRockfallId > 0){
+		}else{
 			var rockfallLandslide = 'rockfall';
 			var rockLandKey = 0;
 			//alert(rockfallLandslide)
 		}
+		
 		if(data.roadOrTrail.toString()== 'R'){
 			var roadOrTrailKey = 0;
 			//alert(rockfallLandslide)
@@ -447,18 +655,432 @@ export default class EditSite extends Component {
 			//alert(rockfallLandslide)
 		}
 		
+		if(prelimRockfallDitchEff.toString()== '3'){
+			var prelimRockfallDitchEffKey = 0;
+			//alert(rockfallLandslide)
+		}else if(prelimRockfallDitchEff.toString()== '9'){
+			var prelimRockfallDitchEffKey = 1;
+			//alert(rockfallLandslide)
+		}else if(prelimRockfallDitchEff.toString()== '27'){
+			var prelimRockfallDitchEffKey = 2;
+					//alert(rockfallLandslide)
+		}else if(prelimRockfallDitchEff.toString()== '81'){
+			var prelimRockfallDitchEffKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var prelimRockfallDitchEffKey = -1;
+		}
+		
+		if(prelimRockfallRockfallHistory.toString()== '3'){
+			var prelimRockfallRockfallHistoryKey = 0;
+			//alert(rockfallLandslide)
+		}else if(prelimRockfallRockfallHistory.toString()== '9'){
+			var prelimRockfallRockfallHistoryKey = 1;
+			//alert(rockfallLandslide)
+		}else if(prelimRockfallRockfallHistory.toString()== '27'){
+			var prelimRockfallRockfallHistoryKey = 2;
+					//alert(rockfallLandslide)
+		}else if(prelimRockfallRockfallHistory.toString()== '81'){
+			var prelimRockfallRockfallHistoryKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var prelimRockfallRockfallHistoryKey = -1;
+		}
+		
+		if(prelimRockfallBlockSizeEventVol.toString()== '3'){
+			var prelimRockfallBlockSizeEventVolKey = 0;
+			//alert(rockfallLandslide)
+		}else if(prelimRockfallBlockSizeEventVol.toString()== '9'){
+			var prelimRockfallBlockSizeEventVolKey = 1;
+			//alert(rockfallLandslide)
+		}else if(prelimRockfallBlockSizeEventVol.toString()== '27'){
+			var prelimRockfallBlockSizeEventVolKey = 2;
+					//alert(rockfallLandslide)
+		}else if(prelimRockfallBlockSizeEventVol.toString()== '81'){
+			var prelimRockfallBlockSizeEventVolKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var prelimRockfallBlockSizeEventVolKey = -1;
+		}
+		
+		if(data.impactOnUse.toString()== '3'){
+			var impactOnUseKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.impactOnUse.toString()== '9'){
+			var impactOnUseKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.impactOnUse.toString()== '27'){
+			var impactOnUseKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.impactOnUse.toString()== '81'){
+			var impactOnUseKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var impactOnUseKey = -1;
+		}
+		
+		if(data.aadtUsage.toString()== '3'){
+			var aadtUsageKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.aadtUsage.toString()== '9'){
+			var aadtUsageKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.aadtUsage.toString()== '27'){
+			var aadtUsageKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.aadtUsage.toString()== '81'){
+			var aadtUsageKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var aadtUsageKey = -1;
+		}
+		
+		if(data.slopeDrainage.toString()== '3'){
+			var slopeDrainageKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.slopeDrainage.toString()== '9'){
+			var slopeDrainageKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.slopeDrainage.toString()== '27'){
+			var slopeDrainageKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.slopeDrainage.toString()== '81'){
+			var slopeDrainageKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var slopeDrainageKey = -1;
+		}
+		
+		if(data.hazardRatingAnnualRainfall.toString()== '3'){
+			var hazardRatingAnnualRainfallKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.hazardRatingAnnualRainfall.toString()== '9'){
+			var hazardRatingAnnualRainfallKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.hazardRatingAnnualRainfall.toString()== '27'){
+			var hazardRatingAnnualRainfallKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.hazardRatingAnnualRainfall.toString()== '81'){
+			var hazardRatingAnnualRainfallKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var hazardRatingAnnualRainfallKey = -1;
+		}
+		
+		if(data.hazardRatingSlopeHeightAxialLength.toString()== '3'){
+			var hazardRatingSlopeHeightAxialLengthKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.hazardRatingSlopeHeightAxialLength.toString()== '9'){
+			var hazardRatingSlopeHeightAxialLengthKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.hazardRatingSlopeHeightAxialLength.toString()== '27'){
+			var hazardRatingSlopeHeightAxialLengthKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.hazardRatingSlopeHeightAxialLength.toString()== '81'){
+			var hazardRatingSlopeHeightAxialLengthKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var hazardRatingSlopeHeightAxialLengthKey = -1;
+		}
+		
+		if(hazardRockfallMaintFrequency.toString()== '3'){
+			var hazardRockfallMaintFrequencyKey = 0;
+			//alert(rockfallLandslide)
+		}else if(hazardRockfallMaintFrequency.toString()== '9'){
+			var hazardRockfallMaintFrequencyKey = 1;
+			//alert(rockfallLandslide)
+		}else if(hazardRockfallMaintFrequency.toString()== '27'){
+			var hazardRockfallMaintFrequencyKey = 2;
+					//alert(rockfallLandslide)
+		}else if(hazardRockfallMaintFrequency.toString()== '81'){
+			var hazardRockfallMaintFrequencyKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var hazardRockfallMaintFrequencyKey = -1;
+		}
+		
+		if(caseOneStrucCond.toString()== '3'){
+			var caseOneStrucCondKey = 0;
+			//alert(rockfallLandslide)
+		}else if(caseOneStrucCond.toString()== '9'){
+			var caseOneStrucCondKey = 1;
+			//alert(rockfallLandslide)
+		}else if(caseOneStrucCond.toString()== '27'){
+			var caseOneStrucCondKey = 2;
+					//alert(rockfallLandslide)
+		}else if(caseOneStrucCond.toString()== '81'){
+			var caseOneStrucCondKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var caseOneStrucCondKey = -1;
+		}
+		
+		if(caseOneRockFriction.toString()== '3'){
+			var caseOneRockFrictionKey = 0;
+			//alert(rockfallLandslide)
+		}else if(caseOneRockFriction.toString()== '9'){
+			var caseOneRockFrictionKey = 1;
+			//alert(rockfallLandslide)
+		}else if(caseOneRockFriction.toString()== '27'){
+			var caseOneRockFrictionKey = 2;
+					//alert(rockfallLandslide)
+		}else if(caseOneRockFriction.toString()== '81'){
+			var caseOneRockFrictionKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var caseOneRockFrictionKey = -1;
+		}
+		
+		if(caseTwoStrucCondition.toString()== '3'){
+			var caseTwoStrucConditionKey = 0;
+			//alert(rockfallLandslide)
+		}else if(caseTwoStrucCondition.toString()== '9'){
+			var caseTwoStrucConditionKey = 1;
+			//alert(rockfallLandslide)
+		}else if(caseTwoStrucCondition.toString()== '27'){
+			var caseTwoStrucConditionKey = 2;
+					//alert(rockfallLandslide)
+		}else if(caseTwoStrucCondition.toString()== '81'){
+			var caseTwoStrucConditionKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var caseTwoStrucConditionKey = -1;
+		}
+		
+		if(caseTwoDiffErosion.toString()== '3'){
+			var caseTwoDiffErosionKey = 0;
+			//alert(rockfallLandslide)
+		}else if(caseTwoDiffErosion.toString()== '9'){
+			var caseTwoDiffErosionKey = 1;
+			//alert(rockfallLandslide)
+		}else if(caseTwoDiffErosion.toString()== '27'){
+			var caseTwoDiffErosionKey = 2;
+					//alert(rockfallLandslide)
+		}else if(caseTwoDiffErosion.toString()== '81'){
+			var caseTwoDiffErosionKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var caseTwoDiffErosionKey = -1;
+		}
+		
+		if(prelimLandslideRoadWidthAffected.toString()== '3'){
+			var prelimLandslideRoadWidthAffectedKey = 0;
+			//alert(rockfallLandslide)
+		}else if(prelimLandslideRoadWidthAffected.toString()== '9'){
+			var prelimLandslideRoadWidthAffectedKey = 1;
+			//alert(rockfallLandslide)
+		}else if(prelimLandslideRoadWidthAffected.toString()== '27'){
+			var prelimLandslideRoadWidthAffectedKey = 2;
+					//alert(rockfallLandslide)
+		}else if(prelimLandslideRoadWidthAffected.toString()== '81'){
+			var prelimLandslideRoadWidthAffectedKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var prelimLandslideRoadWidthAffectedKey = -1;
+		}
+		
+		if(prelimLandslideSlideErosionEffects.toString()== '3'){
+			var prelimLandslideSlideErosionEffectsKey = 0;
+			//alert(rockfallLandslide)
+		}else if(prelimLandslideSlideErosionEffects.toString()== '9'){
+			var prelimLandslideSlideErosionEffectsKey = 1;
+			//alert(rockfallLandslide)
+		}else if(prelimLandslideSlideErosionEffects.toString()== '27'){
+			var prelimLandslideSlideErosionEffectsKey = 2;
+					//alert(rockfallLandslide)
+		}else if(prelimLandslideSlideErosionEffects.toString()== '81'){
+			var prelimLandslideSlideErosionEffectsKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var prelimLandslideSlideErosionEffectsKey = -1;
+		}
+		
+		if(prelimLandslideLengthAffected.toString()== '3'){
+			var prelimLandslideLengthAffectedKey = 0;
+			//alert(rockfallLandslide)
+		}else if(prelimLandslideLengthAffected.toString()== '9'){
+			var prelimLandslideLengthAffectedKey = 1;
+			//alert(rockfallLandslide)
+		}else if(prelimLandslideLengthAffected.toString()== '27'){
+			var prelimLandslideLengthAffectedKey = 2;
+					//alert(rockfallLandslide)
+		}else if(prelimLandslideLengthAffected.toString()== '81'){
+			var prelimLandslideLengthAffectedKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var prelimLandslideLengthAffectedKey = -1;
+		}
+		
+		if(hazardLandslideThawStability.toString()== '3'){
+			var hazardLandslideThawStabilityKey = 0;
+			//alert(rockfallLandslide)
+		}else if(hazardLandslideThawStability.toString()== '9'){
+			var hazardLandslideThawStabilityKey = 1;
+			//alert(rockfallLandslide)
+		}else if(hazardLandslideThawStability.toString()== '27'){
+			var hazardLandslideThawStabilityKey = 2;
+					//alert(rockfallLandslide)
+		}else if(hazardLandslideThawStability.toString()== '81'){
+			var hazardLandslideThawStabilityKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var hazardLandslideThawStabilityKey = -1;
+		}
+		
+		if(hazardLandslideMaintFrequency.toString()== '3'){
+			var hazardLandslideMaintFrequencyKey = 0;
+			//alert(rockfallLandslide)
+		}else if(hazardLandslideMaintFrequency.toString()== '9'){
+			var hazardLandslideMaintFrequencyKey = 1;
+			//alert(rockfallLandslide)
+		}else if(hazardLandslideMaintFrequency.toString()== '27'){
+			var hazardLandslideMaintFrequencyKey = 2;
+					//alert(rockfallLandslide)
+		}else if(hazardLandslideMaintFrequency.toString()== '81'){
+			var hazardLandslideMaintFrequencyKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var hazardLandslideMaintFrequencyKey = -1;
+		}
+		
+		if(hazardLandslideMovementHistory.toString()== '3'){
+			var hazardLandslideMovementHistoryKey = 0;
+			//alert(rockfallLandslide)
+		}else if(hazardLandslideMovementHistory.toString()== '9'){
+			var hazardLandslideMovementHistoryKey = 1;
+			//alert(rockfallLandslide)
+		}else if(hazardLandslideMovementHistory.toString()== '27'){
+			var hazardLandslideMovementHistoryKey = 2;
+					//alert(rockfallLandslide)
+		}else if(hazardLandslideMovementHistory.toString()== '81'){
+			var hazardLandslideMovementHistoryKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var hazardLandslideMovementHistoryKey = -1;
+		}
+		
+		if(data.routeTrailWidth.toString()== '3'){
+			var routeTrailWidthKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.routeTrailWidth.toString()== '9'){
+			var routeTrailWidthKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.routeTrailWidth.toString()== '27'){
+			var routeTrailWidthKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.routeTrailWidth.toString()== '81'){
+			var routeTrailWidthKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var routeTrailWidthKey = -1;
+		}
+		
+		if(data.humanExFactor.toString()== '3'){
+			var humanExFactorKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.humanExFactor.toString()== '9'){
+			var humanExFactorKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.humanExFactor.toString()== '27'){
+			var humanExFactorKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.humanExFactor.toString()== '81'){
+			var humanExFactorKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var humanExFactorKey = -1;
+		}
+		
+		if(data.percentDsd.toString()== '3'){
+			var percentDsdKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.percentDsd.toString()== '9'){
+			var percentDsdKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.percentDsd.toString()== '27'){
+			var percentDsdKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.percentDsd.toString()== '81'){
+			var percentDsdKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var percentDsdKey = -1;
+		}
+		
+		if(data.rWImpacts.toString()== '3'){
+			var rWImpactsKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.rWImpacts.toString()== '9'){
+			var rWImpactsKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.rWImpacts.toString()== '27'){
+			var rWImpactsKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.rWImpacts.toString()== '81'){
+			var rWImpactsKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var rWImpactsKey = -1;
+		}
+		
+		if(data.enviroCultImpacts.toString()== '3'){
+			var enviroCultImpactsKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.enviroCultImpacts.toString()== '9'){
+			var enviroCultImpactsKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.enviroCultImpacts.toString()== '27'){
+			var enviroCultImpactsKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.enviroCultImpacts.toString()== '81'){
+			var enviroCultImpactsKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var enviroCultImpactsKey = -1;
+		}
+		
+		if(data.maintComplexity.toString()== '3'){
+			var maintComplexityKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.maintComplexity.toString()== '9'){
+			var maintComplexityKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.maintComplexity.toString()== '27'){
+			var maintComplexityKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.maintComplexity.toString()== '81'){
+			var maintComplexityKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var maintComplexityKey = -1;
+		}
+		
+		if(data.eventCost.toString()== '3'){
+			var eventCostKey = 0;
+			//alert(rockfallLandslide)
+		}else if(data.eventCost.toString()== '9'){
+			var eventCostKey = 1;
+			//alert(rockfallLandslide)
+		}else if(data.eventCost.toString()== '27'){
+			var eventCostKey = 2;
+					//alert(rockfallLandslide)
+		}else if(data.eventCost.toString()== '81'){
+			var eventCostKey = 3;
+							//alert(rockfallLandslide)
+		}else{
+			var eventCostKey = -1;
+		}
+		
 		//let editSites = realm.objects('Site');//.filtered('id="3"');
 		//let editSite = editSites.filtered('id='+id);
+		//alert("risk"+data.riskTotal.toString());
 		this.state = { 
 			id: data.id,
-			//siteName: data.siteName,
-			//siteLocation: data.siteLocation,
-			//siteName:"",
-			//siteLocation:"",
 			selectedAgency:data.umbrellaAgency,
 			selectedRegion:data.regionalAdmin,
 			selectedLocal:data.localAdmin,
-			date: data.date,
+			date:date, 
+			oldDate:data.date,
 			rockfallLandslide:rockfallLandslide.toString(),
 			rockLandKey:rockLandKey,
 			hazardType: dataHazardtype, // table hazardlink array
@@ -468,12 +1090,10 @@ export default class EditSite extends Component {
 			roadOrTrailKey:roadOrTrailKey,
 			rtClass:data.rtClass.toString(),
 			rater:data.rater.toString(),
-			beginMileMarker:data.beginMileMarker.toString(),
-			endMileMarker:data.endMileMarker.toString(),
+			beginMileMarker:data.beginMileMarker.toFixed(2).toString(),
+			endMileMarker:data.endMileMarker.toFixed(2).toString(),
 			side:data.side.toString(),
 			weather:data.weather.toString(),
-			watchID: (null: ?number),
-			initialPosition: 'unknown',
       		lastPosition: 'unknown',
 			beginCoordinateLatitude:data.beginCoordinateLatitude.toString(),
 			beginCoordinateLongitude:data.beginCoordinateLongitude.toString(),
@@ -502,10 +1122,10 @@ export default class EditSite extends Component {
 			soleAccessRoute:data.soleAccessRoute.toString(),
 			fixesPresent:data.fixesPresent.toString(),
 			file: [],
-			comments:dataComment[0].comment.toString(),
-			fmlaName:dataFmla[0].fmlaName.toString(),
-			fmlaId:dataFmla[0].fmlaId.toString(),
-			fmlaDescription:dataFmla[0].fmlaDescription.toString(),
+			comments:(dataComment.length>0)?dataComment[0].comment.toString():'',
+			fmlaName:(dataFmla.length>0)?dataFmla[0].fmlaName.toString():'',
+			fmlaId:(dataFmla.length>0)?dataFmla[0].fmlaId.toString():'',
+			fmlaDescription:(dataFmla.length>0)?dataFmla[0].fmlaDescription.toString():'',
 			commentId:data.comment,
 			fmlaLinkId:data.fmla,
 			preliminaryRatingLandslideId:data.preliminaryRatingLandslideId,
@@ -547,6 +1167,34 @@ export default class EditSite extends Component {
 			eventCost:data.eventCost.toString(),
 			riskTotal:data.riskTotal.toString(),
 			totalScore:data.totalScore.toString(),
+			prelimRockfallDitchEffKey:prelimRockfallDitchEffKey,
+			prelimRockfallRockfallHistoryKey:prelimRockfallRockfallHistoryKey,
+			prelimRockfallBlockSizeEventVolKey:prelimRockfallBlockSizeEventVolKey,
+			impactOnUseKey:impactOnUseKey,
+			aadtUsageKey:aadtUsageKey,
+			slopeDrainageKey:slopeDrainageKey,
+			hazardRatingAnnualRainfallKey:hazardRatingAnnualRainfallKey,
+			hazardRatingSlopeHeightAxialLengthKey:hazardRatingSlopeHeightAxialLengthKey,
+			hazardRockfallMaintFrequencyKey:hazardRockfallMaintFrequencyKey,
+			caseOneStrucCondKey:caseOneStrucCondKey,
+			caseOneRockFrictionKey:caseOneRockFrictionKey,
+			caseTwoStrucConditionKey:caseTwoStrucConditionKey,
+			caseTwoDiffErosionKey:caseTwoDiffErosionKey,
+			prelimLandslideRoadWidthAffectedKey:prelimLandslideRoadWidthAffectedKey,
+			prelimLandslideSlideErosionEffectsKey:prelimLandslideSlideErosionEffectsKey,
+			prelimLandslideLengthAffectedKey:prelimLandslideLengthAffectedKey,
+			hazardLandslideThawStabilityKey:hazardLandslideThawStabilityKey,
+			hazardLandslideMaintFrequencyKey:hazardLandslideMaintFrequencyKey,
+			hazardLandslideMovementHistoryKey:hazardLandslideMovementHistoryKey,
+			routeTrailWidthKey:routeTrailWidthKey,
+			humanExFactorKey:humanExFactorKey,
+			percentDsdKey:percentDsdKey,
+			rWImpactsKey:rWImpactsKey,
+			enviroCultImpactsKey:enviroCultImpactsKey,
+			maintComplexityKey:maintComplexityKey,
+			eventCostKey:eventCostKey,
+			slopeEvent:0,
+			aadtCheck:true,
 		 };
 		//Alert.alert(""+editSite[0].siteName);
 	}
@@ -896,246 +1544,208 @@ export default class EditSite extends Component {
 	  	alert(err);
 	  } 
 	  
-	  //offline data save
-	  offlineSave(){
-		//let sites = realm.objects('SITE_INFORMATION');
-		//let sitesSorted = sites.sorted('id');
-		//var last_id = 0;
-		//if(sitesSorted.length>0){
-		//	last_id = sitesSorted[sitesSorted.length-1].id;
-		//}
-		//last_id = last_id +1;
-		if(parseInt(this.state.hazardRatingLandslideTotal) > parseInt(this.state.hazardRatingRockfallTotal)){
-			var hazardTotal = parseInt(this.state.hazardRatingLandslideTotal)
-		}else{
-			var hazardTotal = parseInt(this.state.hazardRatingRockfallTotal)
-		}
-		var road = 0;
-		var trail = 0;
-		var slopeStatus = 1;
-			
-		realm.write(()=>{
-			//SITE_INFORMATION schema
-			let site = realm.create('SITE_INFORMATION',{
-				id: this.state.id,
-					//siteName:this.state.siteName,
-					//siteLocation:this.state.siteLocation,
-				umbrellaAgency:this.state.selectedAgency,
-				regionalAdmin:this.state.selectedRegion,
-				localAdmin:this.state.selectedLocal,
-				date:this.state.date,
-				hazardType:this.state.hazardLink,
-				rtNo:this.state.rtNo,
-				roadOrTrail:this.state.roadOrTrail,
-				rtClass:this.state.rtClass,
-				rater:this.state.rater,
-				beginMileMarker:parseFloat(this.state.beginMileMarker),
-				endMileMarker:parseFloat(this.state.endMileMarker),
-				side:this.state.side,
-				road:road,
-				trail:trail,
-				weather:this.state.weather,
-				beginCoordinateLatitude:parseFloat(this.state.beginCoordinateLatitude),
-				beginCoordinateLongitude:parseFloat(this.state.beginCoordinateLongitude),
-				endCoordinateLatitude:parseFloat(this.state.endCoordinateLatitude),
-				endCoordinateLongitude:parseFloat(this.state.endCoordinateLongitude),
-				datum:this.state.datum,
-				aadt:parseInt(this.state.aadt),
-				lengthAffected:parseInt(this.state.lengthAffected),
-				slopeHeightAxialLength:parseInt(this.state.slopeHeightAxialLength),
-				slopeAngle:parseInt(this.state.slopeAngle),
-				sightDistance:parseInt(this.state.sightDistance),
-				roadTrailWidth:parseInt(this.state.roadTrailWidth),
-				speedLimit:parseInt(this.state.speedLimit),
-				minimumDitchWidth:parseFloat(this.state.minimumDitchWidth),
-				maximumDitchWidth:parseFloat(this.state.maximumDitchWidth),
-				minimumDitchDepth:parseFloat(this.state.minimumDitchDepth),
-				maximumDitchDepth:parseFloat(this.state.maximumDitchDepth),
-				firstBeginDitchSlope:parseInt(this.state.firstBeginDitchSlope),
-				firstEndDitchSlope:parseInt(this.state.firstEndDitchSlope),
-				secondBeginDitchSlope:parseInt(this.state.secondBeginDitchSlope),
-				secondEndDitchSlope:parseInt(this.state.secondEndDitchSlope),
-				blkSize:parseFloat(this.state.blkSize),
-				volume:parseFloat(this.state.volume),
-				startAnnualRainfall:parseInt(this.state.startAnnualRainfall),
-				endAnnualRainfall:parseInt(this.state.endAnnualRainfall),
-				soleAccessRoute:this.state.soleAccessRoute,
-				fixesPresent:this.state.fixesPresent,
-				comment:this.state.commentId,
-				fmla:this.state.fmlaLinkId,
-				preliminaryRatingLandslideId:this.state.preliminaryRatingLandslideId,
-				preliminaryRatingRockfallId:this.state.preliminaryRatingRockfallId,
-				impactOnUse:parseInt(this.state.impactOnUse),
-				aadtUsage:parseInt(this.state.aadtUsage),
-				aadtUsageCalcCheckbox:this.state.aadtUsageCalcCheckbox,
-				prelimRating:parseInt(this.state.prelimRating),
-				slopeDrainage:parseInt(this.state.slopeDrainage),
-				hazardRatingAnnualRainfall:parseInt(this.state.hazardRatingAnnualRainfall),
-				hazardRatingSlopeHeightAxialLength:parseInt(this.state.hazardRatingSlopeHeightAxialLength),
-				hazardRatingLandslideId:this.state.hazardRatingLandslideId,
-				hazardRatingRockfallId:this.state.hazardRatingRockfallId,
-				routeTrailWidth:parseInt(this.state.routeTrailWidth),
-				humanExFactor:parseInt(this.state.humanExFactor),
-				percentDsd:parseInt(this.state.percentDsd),
-				rWImpacts:parseInt(this.state.rWImpacts),
-				enviroCultImpacts:parseInt(this.state.enviroCultImpacts),
-				maintComplexity:parseInt(this.state.maintComplexity),
-				eventCost:parseInt(this.state.eventCost),
-				hazardTotal:hazardTotal,
-				riskTotal:parseInt(this.state.riskTotal),
-				totalScore:parseInt(this.state.totalScore),
-				slopeStatus:slopeStatus,
-				email:'test1@email.com',
-				},true);
-			
-				//comment schema update
-				let comment = realm.create('COMMENTS',{
-					id: parseInt(this.state.commentId),
-					comment:this.state.comments,		
-				},true);
-				//alert("comment"+comment_last_id)
-					
-				//fmlalink schema update			
-				let fmlalink = realm.create('FMLA_LINK',{
-					id: parseInt(this.state.fmlaLinkId),
-					fmlaName:this.state.fmlaName,
-					fmlaId:this.state.fmlaId,
-					fmlaDescription:this.state.fmlaDescription,
-			
-				},true);
-				//alert("fmlaName"+fmla_last_id)
-				
-				//hazardlinks schema update
-				
-					let hazardlinks = realm.objects('HAZARD_LINK').filtered('id='+ parseInt(this.state.hazardLink));
-					var updateKey = 0;
-					//alert("comment"+dataHazardType[1].hazardLink)
-					//function is checking if the selected array of hazard type changed or not
-					function checkArray(element){
-						for(let i=0;i<hazardlinks.length;i++){
-							return hazardlinks[i].hazardLink == element;
-						}
-					}
-					
-					if(this.state.hazardType.findIndex(checkArray)==-1){
-						updateKey = 1;
-					}
-					//alert(updateKey);
-					
-					if(updateKey == 1){
-					realm.delete(hazardlinks);
-			
-					for(let i = 0; i < this.state.hazardType.length; i++){
-						this.state.hazardType[i]['value']
-					let	hazardlink = realm.create('HAZARD_LINK',{
-							id: parseInt(this.state.hazardLink),
-							hazardLink:parseInt(this.state.hazardType[i]['value']),
-			
-						},true);
-						
-					
-						}//for 
-					}//if
-				
-			//alert("hazard"+hazardlinks_last_id)
-				//LANDSLIDE_PRILIMINARY_RATING
-				if(this.state.rockfallLandslide == 'landslide'){
-					//let prelimLandslides = realm.objects('LANDSLIDE_PRILIMINARY_RATING');
-					//let prelimLandslidesSorted = prelimLandslides.sorted('id');
-					//var prelimLandslides_last_id = 0;
-					//if(prelimLandslidesSorted.length>0){
-					//	prelimLandslides_last_id = prelimLandslidesSorted[prelimLandslidesSorted.length-1].id;
-					//}
-					//prelimLandslides_last_id = prelimLandslides_last_id+1;
-					
-					//var prelimRockfalls_last_id = 0;
-					
-					let prelimLandslide = realm.create('LANDSLIDE_PRILIMINARY_RATING',{
-						id: parseInt(this.state.preliminaryRatingLandslideId),
-						roadWidthAffected:parseInt(this.state.prelimLandslideRoadWidthAffected),
-						slideErosionEffects:parseInt(this.state.prelimLandslideSlideErosionEffects),
-						lengthAffected:parseInt(this.state.prelimLandslideLengthAffected),
-					},true);
-						//alert(prelimLandslides_last_id +" "+prelimRockfalls_last_id)
-					
-				}
-				
-				//ROCKFALL_PRILIMINARY_RATING
-				if(this.state.rockfallLandslide == 'rockfall'){
-					//let prelimRockfalls = realm.objects('ROCKFALL_PRILIMINARY_RATING');
-					//let prelimRockfallsSorted = prelimRockfalls.sorted('id');
-					//var prelimRockfalls_last_id = 0;
-					//if(prelimRockfallsSorted.length>0){
-					//	prelimRockfalls_last_id = prelimRockfallsSorted[prelimRockfallsSorted.length-1].id;
-					//}
-					//prelimRockfalls_last_id = prelimRockfalls_last_id+1;
-					
-					//var prelimLandslides_last_id = 0;
-					
-					let prelimRockfall = realm.create('ROCKFALL_PRILIMINARY_RATING',{
-						id: parseInt(this.state.preliminaryRatingRockfallId),
-						ditchEff:parseInt(this.state.prelimRockfallDitchEff),
-						rockfallHistory:parseInt(this.state.prelimRockfallRockfallHistory),
-						blockSizeEventVol:parseInt(this.state.prelimRockfallBlockSizeEventVol),
-
-					},true);
-					//alert(prelimLandslides_last_id +" "+prelimRockfalls_last_id)
-				}
-				
-				//LANDSLIDE_HAZARD_RATING
-				if(this.state.rockfallLandslide == 'landslide'){
-					//let hazardLandslides = realm.objects('LANDSLIDE_HAZARD_RATING');
-					//let hazardLandslidesSorted = hazardLandslides.sorted('id');
-					//var hazardLandslides_last_id = 0;
-					//if(hazardLandslidesSorted.length>0){
-					//	hazardLandslides_last_id = hazardLandslidesSorted[hazardLandslidesSorted.length-1].id;
-					//}
-					//hazardLandslides_last_id = hazardLandslides_last_id+1;
-					
-					//var hazardRockfalls_last_id = 0;
-					
-					let hazardLandslide = realm.create('LANDSLIDE_HAZARD_RATING',{
-						id: parseInt(this.state.hazardRatingLandslideId),
-						thawStability:parseInt(this.state.hazardLandslideThawStability),
-						maintFrequency:parseInt(this.state.hazardLandslideMaintFrequency),
-						movementHistory:parseInt(this.state.hazardLandslideMovementHistory),
+  	//save site after each field change  
+  	saveSiteInfo(){
+  		var road = 0;
+  		var trail = 0;
+  		var slopeStatus = 1;
 		
-					},true);
-					//alert(hazardLandslides_last_id +" "+hazardRockfalls_last_id)
-				}
+		if(this.state.rockfallLandslide=='rockfall'){
+		  //setting landslide tableids to 0
+		  this.setState({preliminaryRatingLandslideId:0},()=>{
+		  	
+		  });
+		  this.setState({hazardRatingLandslideId:0},()=>{
+		  	
+		  });
+		  var preliminaryRatingLandslideId  = 0;
+		  var hazardRatingLandslideId = 0;
+		  var preliminaryRatingRockfallId = this.state.preliminaryRatingRockfallId;
+		  var hazardRatingRockfallId = this.state.hazardRatingRockfallId;
+		  
+		 // alert(this.state.prelimRatingLandslideTotal)
+		}else{
+		  //setting rockfall tableids to 0
+		  this.setState({preliminaryRatingRockfallId:0},()=>{
+		  	
+		  });
+		  this.setState({hazardRatingRockfallId:0},()=>{
+		  	
+		  });
+		  var preliminaryRatingLandslideId  = this.state.preliminaryRatingLandslideId;
+		  var hazardRatingLandslideId = this.state.hazardRatingLandslideId;
+		  var preliminaryRatingRockfallId = 0;
+		  var hazardRatingRockfallId = 0;
+	  	  
+		}
+		
+		
+  		if(parseInt(this.state.hazardRatingLandslideTotal) > parseInt(this.state.hazardRatingRockfallTotal)){
+  			var hazardTotal = parseInt(this.state.hazardRatingLandslideTotal)
+  		}else{
+  			var hazardTotal = parseInt(this.state.hazardRatingRockfallTotal)
+  		}
+	    //alert("id"+this.state.hazardRatingRockfallId+" toTal"+this.state.hazardRatingRockfallTotal+"   diff"+this.state.caseTwoDiffErosion);
+  	  	realm.write(()=>{
+  			let site = realm.create('SITE_INFORMATION',{
+  				id: this.state.id,
+  				umbrellaAgency:this.state.selectedAgency,
+  				regionalAdmin:this.state.selectedRegion,
+  				localAdmin:this.state.selectedLocal,
+  				date:this.state.date,
+  				hazardType:this.state.hazardLink,
+  				rtNo:this.state.rtNo,
+  				roadOrTrail:this.state.roadOrTrail,
+  				rtClass:this.state.rtClass,
+  				rater:this.state.rater,
+				beginMileMarker:isNaN(parseFloat(this.state.beginMileMarker))? 0.0: parseFloat(this.state.beginMileMarker),
+				endMileMarker:isNaN(parseFloat(this.state.endMileMarker))? 0.0: parseFloat(this.state.endMileMarker),
+  				side:this.state.side,
+  				road:road,
+  				trail:trail,
+  				weather:this.state.weather,
+				beginCoordinateLatitude:isNaN(parseFloat(this.state.beginCoordinateLatitude))? 0.0: parseFloat(this.state.beginCoordinateLatitude),
+				beginCoordinateLongitude:isNaN(parseFloat(this.state.beginCoordinateLongitude))? 0.0 : parseFloat(this.state.beginCoordinateLongitude),
+				endCoordinateLatitude:isNaN(parseFloat(this.state.endCoordinateLatitude))? 0.0: parseFloat(this.state.endCoordinateLatitude),
+				endCoordinateLongitude:isNaN(parseFloat(this.state.endCoordinateLongitude))? 0.0: parseFloat(this.state.endCoordinateLongitude),
+				datum:this.state.datum,
+				aadt:isNaN(parseInt(this.state.aadt))? 0:parseInt(this.state.aadt),
+				lengthAffected:isNaN(parseFloat(this.state.lengthAffected))? 0.0: parseFloat(this.state.lengthAffected),
+				slopeHeightAxialLength:isNaN(parseFloat(this.state.slopeHeightAxialLength))? 0.0: parseFloat(this.state.slopeHeightAxialLength),
+				slopeAngle:isNaN(parseInt(this.state.slopeAngle))? 0: parseInt(this.state.slopeAngle),
+				sightDistance:isNaN(parseFloat(this.state.sightDistance))? 0.0: parseFloat(this.state.sightDistance),
+				roadTrailWidth:isNaN(parseFloat(this.state.roadTrailWidth))? 0.0: parseFloat(this.state.roadTrailWidth),
+				speedLimit:isNaN(parseInt(this.state.speedLimit))? 0: parseInt(this.state.speedLimit),
+				minimumDitchWidth:isNaN(parseFloat(this.state.minimumDitchWidth))? 0.0: parseFloat(this.state.minimumDitchWidth),
+				maximumDitchWidth:isNaN(parseFloat(this.state.maximumDitchWidth))? 0.0: parseFloat(this.state.maximumDitchWidth),
+				minimumDitchDepth:isNaN(parseFloat(this.state.minimumDitchDepth))? 0.0: parseFloat(this.state.minimumDitchDepth),
+				maximumDitchDepth:isNaN(parseFloat(this.state.maximumDitchDepth))? 0.0: parseFloat(this.state.maximumDitchDepth),
+				firstBeginDitchSlope:isNaN(parseInt(this.state.firstBeginDitchSlope))? 0: parseInt(this.state.firstBeginDitchSlope),
+				firstEndDitchSlope:isNaN(parseInt(this.state.firstEndDitchSlope))? 0: parseInt(this.state.firstEndDitchSlope),
+				secondBeginDitchSlope:isNaN(parseInt(this.state.secondBeginDitchSlope))? 0: parseInt(this.state.secondBeginDitchSlope),
+				secondEndDitchSlope:isNaN(parseInt(this.state.secondEndDitchSlope))? 0: parseInt(this.state.secondEndDitchSlope),
+				blkSize:isNaN(parseFloat(this.state.blkSize))? 0.0: parseFloat(this.state.blkSize),
+				volume:isNaN(parseFloat(this.state.volume))? 0.0: parseFloat(this.state.volume),
+				startAnnualRainfall:isNaN(parseFloat(this.state.startAnnualRainfall))? 0.0: parseFloat(this.state.startAnnualRainfall),
+				endAnnualRainfall:isNaN(parseFloat(this.state.endAnnualRainfall))? 0.0: parseFloat(this.state.endAnnualRainfall),
+				soleAccessRoute:this.state.soleAccessRoute,
+  				fixesPresent:this.state.fixesPresent,
+  				comment:this.state.commentId,
+  				fmla:this.state.fmlaLinkId,
+  				preliminaryRatingLandslideId:preliminaryRatingLandslideId,
+  				preliminaryRatingRockfallId:preliminaryRatingRockfallId,
+				impactOnUse:isNaN(parseInt(this.state.impactOnUse))? 0: parseInt(this.state.impactOnUse),
+				aadtUsage:isNaN(parseInt(this.state.aadtUsage))? 0: parseInt(this.state.aadtUsage),
+				aadtUsageCalcCheckbox:this.state.aadtUsageCalcCheckbox,
+				prelimRating:isNaN(parseInt(this.state.prelimRating))? 0: parseInt(this.state.prelimRating),
+				slopeDrainage:isNaN(parseInt(this.state.slopeDrainage))? 0: parseInt(this.state.slopeDrainage),
+				hazardRatingAnnualRainfall:isNaN(parseInt(this.state.hazardRatingAnnualRainfall))? 0: parseInt(this.state.hazardRatingAnnualRainfall),
+				hazardRatingSlopeHeightAxialLength:isNaN(parseInt(this.state.hazardRatingSlopeHeightAxialLength))? 0: parseInt(this.state.hazardRatingSlopeHeightAxialLength),
+				hazardRatingLandslideId:hazardRatingLandslideId,
+  				hazardRatingRockfallId:hazardRatingRockfallId,
+				routeTrailWidth:isNaN(parseInt(this.state.routeTrailWidth))? 0: parseInt(this.state.routeTrailWidth),
+				humanExFactor:isNaN(parseInt(this.state.humanExFactor))? 0: parseInt(this.state.humanExFactor),
+				percentDsd:isNaN(parseInt(this.state.percentDsd))? 0: parseInt(this.state.percentDsd),
+				rWImpacts:isNaN(parseInt(this.state.rWImpacts))? 0: parseInt(this.state.rWImpacts),
+				enviroCultImpacts:isNaN(parseInt(this.state.enviroCultImpacts))? 0: parseInt(this.state.enviroCultImpacts),
+				maintComplexity:isNaN(parseInt(this.state.maintComplexity))? 0: parseInt(this.state.maintComplexity),
+				eventCost:isNaN(parseInt(this.state.eventCost))? 0: parseInt(this.state.eventCost),
+				hazardTotal:isNaN(hazardTotal)?0:parseInt(hazardTotal),
+				riskTotal:isNaN(parseInt(this.state.riskTotal))? 0: parseInt(this.state.riskTotal),
+				totalScore:isNaN(parseInt(this.state.totalScore))? 0: parseInt(this.state.totalScore),
+				slopeStatus:slopeStatus,
+  				email:'root@email.com',
+  				},true);
 				
-				//ROCKFALL_HAZARD_RATING
-				if(this.state.rockfallLandslide == 'rockfall'){
-					//let hazardRockfalls = realm.objects('ROCKFALL_HAZARD_RATING');
-					//let hazardRockfallsSorted = hazardRockfalls.sorted('id');
-					//var hazardRockfalls_last_id = 0;
-					//if(hazardRockfallsSorted.length>0){
-					//	hazardRockfalls_last_id = hazardRockfallsSorted[hazardRockfallsSorted.length-1].id;
-					//}
-					//hazardRockfalls_last_id = hazardRockfalls_last_id+1;
-					
-					//var hazardLandslides_last_id = 0;
-						
-					let hazardRockfall = realm.create('ROCKFALL_HAZARD_RATING',{
-						id: parseInt(this.state.hazardRatingRockfallId),
-						maintFrequency:parseInt(this.state.hazardRockfallMaintFrequency),
-						caseOneStrucCond:parseInt(this.state.caseOneStrucCond),
-						caseOneRockFriction:parseInt(this.state.caseOneRockFriction),
-						caseTwoStrucCondition:parseInt(this.state.caseTwoStrucCondition),
-						caseTwoDiffErosion:parseInt(this.state.caseTwoDiffErosion),
-					},true);
-					
-						//alert(hazardLandslides_last_id +" "+hazardRockfalls_last_id)
+    			//comment schema
+    			let comment = realm.create('COMMENTS',{
+    				id: this.state.commentId,
+    				comment:this.state.comments,		
+    			},true);
+				
+				//fmlalink schema
+	  	  		let fmlalink = realm.create('FMLA_LINK',{
+	  	  			id: this.state.fmlaLinkId,
+	  	  			fmlaName:this.state.fmlaName,
+	  	  			fmlaId:this.state.fmlaId,
+	  	  			fmlaDescription:this.state.fmlaDescription,
+	  	  		},true);
+				
+			//hazardlinks schema update
+		
+				let hazardlinks = realm.objects('HAZARD_LINK').filtered('id='+ parseInt(this.state.hazardLink));
+				var updateKey = 0;
+				//alert("comment"+dataHazardType[1].hazardLink)
+				//function is checking if the selected array of hazard type changed or not
+				function checkArray(element){
+					for(let i=0;i<hazardlinks.length;i++){
+						return hazardlinks[i].hazardLink == element;
+					}
 				}
 			
-			});
+				if(this.state.hazardType.findIndex(checkArray)==-1){
+					updateKey = 1;
+				}
+				//alert(updateKey);
+			
+				if(updateKey == 1){
+				realm.delete(hazardlinks);
 	
-		Alert.alert("Current id:"+ this.state.id +" has been edited and saved in Offline database." );
-		this.props.navigation.navigate('Offsite')
-		console.log(this);
-	  }   	
+				for(let i = 0; i < this.state.hazardType.length; i++){
+					this.state.hazardType[i]['value']
+				let	hazardlink = realm.create('HAZARD_LINK',{
+						id: parseInt(this.state.hazardLink),
+						hazardLink:parseInt(this.state.hazardType[i]['value']),
+	
+					},true);
+				
+			
+					}//for 
+				}//if
+				
+				//save LANDSLIDE_PRILIMINARY_RATING
+	  	  		let prelimLandslide = realm.create('LANDSLIDE_PRILIMINARY_RATING',{
+	  	  			id: parseInt(this.state.preliminaryRatingLandslideId),
+					roadWidthAffected:isNaN(parseInt(this.state.prelimLandslideRoadWidthAffected))?0:parseInt(this.state.prelimLandslideRoadWidthAffected),
+					slideErosionEffects:isNaN(parseInt(this.state.prelimLandslideSlideErosionEffects))?0:parseInt(this.state.prelimLandslideSlideErosionEffects),
+					lengthAffected:isNaN(parseInt(this.state.prelimLandslideLengthAffected))?0:parseInt(this.state.prelimLandslideLengthAffected),
+		  		},true);
+				
+				//save ROCKFALL_PRILIMINARY_RATING
+	  			let prelimRockfall = realm.create('ROCKFALL_PRILIMINARY_RATING',{
+	  				id: parseInt(this.state.preliminaryRatingRockfallId),
+					ditchEff:isNaN(parseInt(this.state.prelimRockfallDitchEff))?0:parseInt(this.state.prelimRockfallDitchEff),
+					rockfallHistory:isNaN(parseInt(this.state.prelimRockfallRockfallHistory))?0:parseInt(this.state.prelimRockfallRockfallHistory),
+					blockSizeEventVol:isNaN(parseInt(this.state.prelimRockfallBlockSizeEventVol))?0:parseInt(this.state.prelimRockfallBlockSizeEventVol),
+				},true);
+				
+				 //saveHazardLandslide
+	  			let hazardLandslide = realm.create('LANDSLIDE_HAZARD_RATING',{
+	  				id: parseInt(this.state.hazardRatingLandslideId),
+					thawStability:isNaN(parseInt(this.state.hazardLandslideThawStability))?0:parseInt(this.state.hazardLandslideThawStability),
+					maintFrequency:isNaN(parseInt(this.state.hazardLandslideMaintFrequency))?0:parseInt(this.state.hazardLandslideMaintFrequency),
+					movementHistory:isNaN(parseInt(this.state.hazardLandslideMovementHistory))?0:parseInt(this.state.hazardLandslideMovementHistory),
+		
+	  				},true);
+					
+					
+					//save ROCKFALL_HAZARD_RATING
+		  			let hazardRockfall = realm.create('ROCKFALL_HAZARD_RATING',{
+		  				id: parseInt(this.state.hazardRatingRockfallId),
+						maintFrequency:isNaN(parseInt(this.state.hazardRockfallMaintFrequency))?0:parseInt(this.state.hazardRockfallMaintFrequency),
+						caseOneStrucCond:isNaN(parseInt(this.state.caseOneStrucCond))?0:parseInt(this.state.caseOneStrucCond),
+						caseOneRockFriction:isNaN(parseInt(this.state.caseOneRockFriction))?0:parseInt(this.state.caseOneRockFriction),
+						caseTwoStrucCondition:isNaN(parseInt(this.state.caseTwoStrucCondition))?0:parseInt(this.state.caseTwoStrucCondition),
+						caseTwoDiffErosion:isNaN(parseInt(this.state.caseTwoDiffErosion))?0:parseInt(this.state.caseTwoDiffErosion),		
+					},true);
+				
+  	  	});
+
+  	  } 
+	
+	       	
   	onButtonPress(){
-  		var err = this.validateForm();
+  	/*	var err = this.validateForm();
 		
   		//this.offlineSave();
 		
@@ -1147,26 +1757,10 @@ export default class EditSite extends Component {
   		else
   		{
   			this.displayError(err);
-  		}
+  		}*/
 		
   	}
-	/*	
-	onButtonPress(){
-		
-		realm.write(()=>{
-			let site = realm.create('SITE_INFORMATION',
-			{
-				id: this.state.id,
-				siteName:this.state.siteName,
-				siteLocation:this.state.siteLocation,
-				
-			},
-			true);
-		});
-		this.props.navigation.navigate('Offsite')
-		//Alert.alert("total id:"+sites.length);
-		//console.log(this);
-	}*/
+	
     renderRegion(){
 		//this.setState({selectedAgency:value});
 		//alert(value)
@@ -1196,13 +1790,16 @@ export default class EditSite extends Component {
 	onSelectionsChange = (hazardType) => {
 	    // selectedFruits is array of { label, value }
 	    this.setState({ hazardType:hazardType },()=>{
+			this.saveSiteInfo();
 	    	//alert(this.state.hazardType[0]['label'])
 	    })
 		
 	  }
 	 //setting state to default for management area
 	 onValueChange = (value) => {
-	    this.setState({selectedAgency:value})
+	    this.setState({selectedAgency:value},()=>{
+	    	this.saveSiteInfo()
+	    })
 		if(value == 'search_0'){
 	   	 	this.setState({selectedRegion:'search_0'})			
 		}
@@ -1339,10 +1936,12 @@ export default class EditSite extends Component {
 	  		var calc_val = Math.round(Math.pow(3, Math.sqrt((this.state.aadt/50))) );
 	  		if(calc_val > 100)
 	  			calc_val = 100;
-			this.setState({aadtUsage:calc_val.toString()},()=>{
-				//alert(this.state.aadtUsage)
-			//	this.prelimLandslideRating(this.state.rockfallLandslide)
-			});
+			if(parseInt(this.state.aadtUsage) == calc_val || parseInt(this.state.aadtUsage) == 0){
+				this.setState({aadtUsage:calc_val.toString()},()=>{
+					//alert(this.state.aadtUsage)
+				//	this.prelimLandslideRating(this.state.rockfallLandslide)
+				});
+			}
 	  		//$("#aadt_usage").val(calc_val);
 	  	}
 	  }
@@ -1363,8 +1962,11 @@ export default class EditSite extends Component {
 	  	sum += isNaN(parseInt(this.state.prelimLandslideSlideErosionEffects)) ? 0 : parseInt(this.state.prelimLandslideSlideErosionEffects);
 	  	sum += isNaN(parseInt(this.state.prelimLandslideLengthAffected)) ? 0 : parseInt(this.state.prelimLandslideLengthAffected);
 	  	sum += isNaN(parseInt(this.state.impactOnUse)) ? 0 : parseInt(this.state.impactOnUse);
-	  	sum += isNaN(parseInt(this.state.aadtUsage)) ? 0 : parseInt(this.state.aadtUsage);
-		
+  	  if(this.state.aadtUsageCalcCheckbox == true){
+  	  	sum += isNaN(parseInt(this.state.aadtUsage)) ? 0 : parseInt(this.state.aadtUsage);
+		  
+	  }
+	  	
 	  	if(value == 'landslide')
 			//alert(this.state.prelimLandslideLengthAffected);
 			this.setState({prelimRatingLandslideTotal:Math.round(sum).toString()},()=>{
@@ -1380,8 +1982,11 @@ export default class EditSite extends Component {
   	  	sum += isNaN(parseInt(this.state.prelimRockfallRockfallHistory)) ? 0 : parseInt(this.state.prelimRockfallRockfallHistory);
   	  	sum += isNaN(parseInt(this.state.prelimRockfallBlockSizeEventVol)) ? 0 : parseInt(this.state.prelimRockfallBlockSizeEventVol);
   	  	sum += isNaN(parseInt(this.state.impactOnUse)) ? 0 : parseInt(this.state.impactOnUse);
-  	  	sum += isNaN(parseInt(this.state.aadtUsage)) ? 0 : parseInt(this.state.aadtUsage);
+		if(this.state.aadtUsageCalcCheckbox == true){
+	  	  	sum += isNaN(parseInt(this.state.aadtUsage)) ? 0 : parseInt(this.state.aadtUsage);
 	
+		}
+  	  	
   	  	if(value == 'rockfall')
   			this.setState({prelimRatingRockfallRotal:Math.round(sum).toString()},()=>{
   				this.prelimRating(value); 
@@ -1394,7 +1999,12 @@ export default class EditSite extends Component {
 	  annualRainfall(){ 
 			//startAnnualRainfall:'',
 			//endAnnualRainfall:'',
-	  	var avg = Math.round((parseInt(this.state.startAnnualRainfall) + parseInt(this.state.endAnnualRainfall))/2);
+	  	//var avg = Math.round((parseInt(this.state.startAnnualRainfall) + parseInt(this.state.endAnnualRainfall))/2);
+		if(parseInt(this.state.startAnnualRainfall) > parseInt(this.state.endAnnualRainfall)){
+			var avg = parseInt(this.state.startAnnualRainfall);
+		}else{
+			var avg = parseInt(this.state.endAnnualRainfall);
+		}
 	  	var rating = 3;
 	  	if(avg > 10)
 	  		rating = 9;
@@ -1419,43 +2029,55 @@ export default class EditSite extends Component {
 	  }
 	  //ROCKFALL HAZARD TOTAL
 	  rockfallHazardTotal(value){
-	  	var value = 0;
-	  	if(this.state.prelimLandslideRoadWidthAffected =="0")
-	  	{
-	  		value  += parseInt(this.state.prelimRockfallDitchEff) + parseInt(this.state.prelimRockfallRockfallHistory)
-	  				+ parseInt(this.state.prelimRockfallBlockSizeEventVol) + parseInt(this.state.slopeDrainage) 
-	  				+ parseInt(this.state.hazardRatingAnnualRainfall) + parseInt(this.state.hazardRatingSlopeHeightAxialLength) 
-	  				+ parseInt(this.state.hazardRockfallMaintFrequency);
-	  		if(parseInt(this.state.caseOneStrucCond) + parseInt(this.state.caseOneRockFriction) 
-	  		 > parseInt(this.state.caseTwoStrucCondition) + parseInt(this.state.caseTwoDiffErosion))
-	  		{
-	  			value += parseInt(this.state.caseOneStrucCond) + parseInt(this.state.caseOneRockFriction);
-	  		}
-	  		else
-	  		{
-	  			value += parseInt(this.state.caseTwoStrucCondition) + parseInt(this.state.caseTwoDiffErosion);
-	  		}
-	  	}
-		this.setState({hazardRatingRockfallTotal:Math.round(value).toString()},()=>{
-			this.totalScore();
-		})
-	  	//$("#hazard_rating_rockfall_total").val(Math.round(value));
-	  	//total_score();
+  	  	var value = 0;
+  		//alert("value"+this.state.prelimLandslideRoadWidthAffected);
+  	  //	if(this.state.prelimLandslideRoadWidthAffected =='')
+  	  //	{
+  	  		value  += isNaN(parseInt(this.state.prelimRockfallDitchEff)) ? 0 : parseInt(this.state.prelimRockfallDitchEff); 
+  			value  += isNaN(parseInt(this.state.prelimRockfallRockfallHistory)) ? 0 : parseInt(this.state.prelimRockfallRockfallHistory);
+  	  		value  += isNaN(parseInt(this.state.prelimRockfallBlockSizeEventVol)) ? 0 : parseInt(this.state.prelimRockfallBlockSizeEventVol);
+  			value  += isNaN(parseInt(this.state.slopeDrainage)) ? 0 : parseInt(this.state.slopeDrainage); 
+  	  		value  += isNaN(parseInt(this.state.hazardRatingAnnualRainfall)) ? 0 : parseInt(this.state.hazardRatingAnnualRainfall);
+  			value  += isNaN(parseInt(this.state.hazardRatingSlopeHeightAxialLength)) ? 0 : parseInt(this.state.hazardRatingSlopeHeightAxialLength);
+  	  		value  += isNaN(parseInt(this.state.hazardRockfallMaintFrequency)) ? 0 : parseInt(this.state.hazardRockfallMaintFrequency);
+				
+  			var	caseOne = isNaN(parseInt(this.state.caseOneStrucCond)) ? 0 : parseInt(this.state.caseOneStrucCond);
+  			caseOne 	+= isNaN(parseInt(this.state.caseOneRockFriction)) ? 0 : parseInt(this.state.caseOneRockFriction);
+  			var caseTwo = isNaN(parseInt(this.state.caseTwoStrucCondition)) ? 0 : parseInt(this.state.caseTwoStrucCondition);
+  			caseTwo     +=  isNaN(parseInt(this.state.caseTwoDiffErosion)) ? 0 : parseInt(this.state.caseTwoDiffErosion);
+			
+  	  		if(caseOne > caseTwo)
+  	  		{
+  	  			value += caseOne;
+  	  		}
+  	  		else
+  	  		{
+  	  			value += caseTwo;
+  	  		}
+  	  //	}
+  		this.setState({hazardRatingRockfallTotal:Math.round(value).toString()},()=>{
+  			//alert("value"+value+",hazardRatingRockfallTotal"+this.state.hazardRatingRockfallTotal);
+  			//alert(this.state.hazardRatingRockfallTotal);
+  			this.totalScore();
+			this.saveSiteInfo();
+  		})
+  	  	//$("#hazard_rating_rockfall_total").val(Math.round(value));
+  	  	//total_score();
 	  }
 	  //LANDSLIDE HAZARD TOTAL
 	  landslideHazardTotal(){
 	  	var value = 0;
 	  	if(this.state.prelimLandslideRoadWidthAffected != "0")
-	  	{
-	  		value = parseInt(this.state.prelimLandslideRoadWidthAffected) 
-				+ parseInt(this.state.prelimLandslideSlideErosionEffects)
-	  			+ parseInt(this.state.prelimLandslideLengthAffected) 
-				+ parseInt(this.state.slopeDrainage) 
-				+ parseInt(this.state.hazardRatingAnnualRainfall)
-	  			+ parseInt(this.state.hazardRatingSlopeHeightAxialLength) 
-				+ parseInt(this.state.hazardLandslideThawStability) 
-	  			+ parseInt(this.state.hazardLandslideMaintFrequency) 
-				+ parseInt(this.state.hazardLandslideMovementHistory) ;
+	  	{//isNaN(parseInt(this.state.hazardLandslideMovementHistory)) ? 0 : parseInt(this.state.hazardLandslideMovementHistory)
+	  		value += isNaN(parseInt(this.state.prelimLandslideRoadWidthAffected)) ? 0 : parseInt(this.state.prelimLandslideRoadWidthAffected); 
+			value += isNaN(parseInt(this.state.prelimLandslideSlideErosionEffects)) ? 0 : parseInt(this.state.prelimLandslideSlideErosionEffects);
+	  		value += isNaN(parseInt(this.state.prelimLandslideLengthAffected)) ? 0 : parseInt(this.state.prelimLandslideLengthAffected);
+			value += isNaN(parseInt(this.state.slopeDrainage)) ? 0 : parseInt(this.state.slopeDrainage);
+			value += isNaN(parseInt(this.state.hazardRatingAnnualRainfall)) ? 0 : parseInt(this.state.hazardRatingAnnualRainfall);
+	  		value += isNaN(parseInt(this.state.hazardRatingSlopeHeightAxialLength)) ? 0 : parseInt(this.state.hazardRatingSlopeHeightAxialLength);
+			value += isNaN(parseInt(this.state.hazardLandslideThawStability)) ? 0 : parseInt(this.state.hazardLandslideThawStability);
+	  		value += isNaN(parseInt(this.state.hazardLandslideMaintFrequency)) ? 0 : parseInt(this.state.hazardLandslideMaintFrequency);
+			value += isNaN(parseInt(this.state.hazardLandslideMovementHistory)) ? 0 : parseInt(this.state.hazardLandslideMovementHistory);
 	  	}
 		this.setState({hazardRatingLandslideTotal:Math.round(value).toString()},()=>{
 			this.totalScore();
@@ -1474,6 +2096,7 @@ export default class EditSite extends Component {
 		
 		this.setState({totalScore:Math.round(risk_total + hazard_total).toString()},()=>{
 			//this.totalScore();
+			this.saveSiteInfo();
 		})
 	  	//$("#total_score").val(Math.round(risk_total + hazard_total));
 	  }
@@ -1526,28 +2149,30 @@ export default class EditSite extends Component {
 	  //percentDsd
 	  percentDsd(){
 	  	var value = 0;
-
-	  	if(this.state.speedLimit <= 25)
-	  		value = (120 - (this.state.sightDistance / 375) * 100)/20;
-	  	else if(this.state.speedLimit <= 30)
-	  		value = (120 - (this.state.sightDistance / 450) * 100)/20;
-	  	else if(this.state.speedLimit <= 35)	
-	  		value = (120 - (this.state.sightDistance / 525) * 100)/20;	
-	  	else if(this.state.speedLimit <= 40)
-	  		value = (120 - (this.state.sightDistance / 600) * 100)/20;
-	  	else if(this.state.speedLimit <= 45)
-	  		value = (120 - (this.state.sightDistance / 675) * 100)/20;
-	  	else if(this.state.speedLimit <= 50)
-	  		value = (120 - (this.state.sightDistance / 750) * 100)/20;
-	  	else if(this.state.speedLimit <= 55)
-	  		value = (120 - (this.state.sightDistance / 875) * 100)/20;
-	  	else if(this.state.speedLimit <= 60)
-	  		value = (120 - (this.state.sightDistance / 1000) * 100)/20;
-	  	else //if($("#speed_limit").val() == 65)	
-	  		value = (120 - (this.state.sightDistance / 1050) * 100)/20;	
-	  	value = Math.pow(3, value);
-	  	value = Math.min(value, 100);
-	  	value = Math.max(value, 0);
+		if(this.state.roadOrTrail == "r" || this.state.roadOrTrail == "R"){
+		  	if(this.state.speedLimit <= 25)
+		  		value = (120 - (this.state.sightDistance / 375) * 100)/20;
+		  	else if(this.state.speedLimit <= 30)
+		  		value = (120 - (this.state.sightDistance / 450) * 100)/20;
+		  	else if(this.state.speedLimit <= 35)	
+		  		value = (120 - (this.state.sightDistance / 525) * 100)/20;	
+		  	else if(this.state.speedLimit <= 40)
+		  		value = (120 - (this.state.sightDistance / 600) * 100)/20;
+		  	else if(this.state.speedLimit <= 45)
+		  		value = (120 - (this.state.sightDistance / 675) * 100)/20;
+		  	else if(this.state.speedLimit <= 50)
+		  		value = (120 - (this.state.sightDistance / 750) * 100)/20;
+		  	else if(this.state.speedLimit <= 55)
+		  		value = (120 - (this.state.sightDistance / 875) * 100)/20;
+		  	else if(this.state.speedLimit <= 60)
+		  		value = (120 - (this.state.sightDistance / 1000) * 100)/20;
+		  	else //if($("#speed_limit").val() == 65)	
+		  		value = (120 - (this.state.sightDistance / 1050) * 100)/20;	
+		  	value = Math.pow(3, value);
+		  	value = Math.min(value, 100);
+		  	value = Math.max(value, 0);
+		}
+	  	
 		this.setState({percentDsd:Math.round(value).toString()},()=>{
 			//this.totalScore();
 		})
@@ -1785,6 +2410,13 @@ export default class EditSite extends Component {
 				}
 				
 				if(value == 'aadt'){
+					if(parseInt(this.state.aadt) != NaN && parseInt(this.state.aadt) >0){
+						this.setState({aadtCheck:false});
+					}else{
+						this.setState({aadtCheck:true});
+					}
+					
+					if(this.state.aadtUsageCalcCheckbox == true){
 					if(this.state.aadt.match(aadt_regex) === null){
 						//if($("#aadt").css("background-color") != 'rgb(255, 0, 0)')
 							alert(aadt_format_S);
@@ -1792,7 +2424,7 @@ export default class EditSite extends Component {
 					}
 					//else
 					//	$("#aadt").css("background-color", "white");
-				
+				}
 				}
 			
 				if(value == 'lengthAffected'){
@@ -2363,142 +2995,17 @@ let dataSourceA = [{cat:'Landslide-Roadway Width Affected',
 						9:'6-25%',
 						27:'26-50%',
 						81:'51-100%'}];
-let dataSourceB = [{cat:'Landslide - Slide/Erosion Effects',
-						3:'Visible crack or slight deposit of material / minor erosion',
-						9:'1 inch offset, or 6-inch deposit of material / major erosion will affect trave in < 5 years',
-						27:'2-inch offset or 12-inch deposity / mod. erosion impacting travel annually',
-						81:'4-inch offset or 24-inch deposity / severe erosion impacting travel consistently'}];
-let dataSourceC = [{cat:'Landslide - Roadway Length Affected',
-						3:'25 ft',
-						9:'100 ft',
-						27:'225 ft',
-						81:'400 ft'}];
-let dataSourceD = [{cat:'Rockfall - Ditch Effectiveness',
-						3:'Good',
-						9:'Moderate',
-						27:'Limited',
-						81:'No Catchment'}];			
-let dataSourceE = [{cat:'Rockfall - Rockfall History',
-						3:'Few Falls',
-						9:'Occasional Falls',
-						27:'Many Falls',
-						81:'Constant Falls'}];
-let dataSourceF = [{cat:'Rockfall - Block Size or Volume per Event',
-						3:'1ft or 3yd^3',
-						9:'2ft or 6yd^3',
-						27:'3ft or 9yd^3',
-						81:'4ft or 12yd^3'}];
-let dataSourceG = [{cat:'All - Impact on Use',
-						3:'Full use continues with minor delay',
-						9:'Partial use remains Use modification required, short (3mi / 30min.) detour available',
-						27:'Use is blocked - long (>30min.) detour avaialble or less than 1 day closure',
-						81:'Use is blocked - no detour available or closure longer than 1 week'}];												
-		  
-let dataSourceH = [{cat:'All - AADT/Usage/Economic or Recreational Importance (highest rating applies)',
-						3:'50 Rarely Used Insignificant economic / rec. importance',
-						9:'200 Occasionally used Minor economic / rec. importance',
-						27:'450 Frequently used Moderate economic / rec. importance',
-						81:'800 Constantly used Significant economic / rec. importance'}];												
-let dataSourceI = [{cat:'All - Slope Drainage',
-						3:'Slope appears dry or well drained; surface runoff well controlled',
-						9:'Intermittent water on slope; mod. not well drained; or surface runoff moderately controlled',
-						27:'Water usually on slope; poorly drained; or surface runoff poorly controlled',
-						81:'Water always on slope; very poorly drained; or surface water runoff control not present'}];		  			
-let dataSourceJ = [{cat:'All - Annual Rainfall',
-						3:'0-10"',
-						9:'10-30"',
-						27:'30-60"',
-						81:'60"+'}];
-let dataSourceK = [{cat:'All - Slope Height/Axial Length of slide',
-						3:'25ft',
-						9:'50ft',
-						27:'75ft',
-						81:'100ft'}];
-let dataSourceL = [{cat:'Thaw Stability',
-						3:'Unfrozen / Thaw Stable',
-						9:'Slightly Thaw Unstable',
-						27:'Moderately Thaw Unstable',
-						81:'Highly Thaw Unstable'}];
-let dataSourceM = [{cat:'Instability - Related Maint. Frequency',
-						3:'Every 10 years',
-						9:'Every 5 years',
-						27:'Every 2 years',
-						81:'Every year'}];
-let dataSourceN = [{cat:'Movement History',
-						3:'Minor movement or sporadic creep',
-						9:'Up to 1 inch annually or steady annual creep',
-						27:'Up to 3 inches per event, one event per year',
-						81:'>3" per event, >6" annually, more than 1 event per year (includes all debris flows)'}];
-let dataSourceO = [{cat:'Rockfall-Related Maint. Frequency',
-						3:'Normal, scheduled maintenance',
-						9:'Patrols after every storm event',
-						27:'Routine seasonal patrols',
-						81:'Year round patrols'}];
-		  
-let dataSourceP = [{cat:'Structural Condition',
-						3:'Discontinuous favorable',
-						9:'Discontinuous random',
-						27:'Discontinuous adverse',
-						81:'Continuous adverse'}];
-let dataSourceQ = [{cat:'Rock Friction',
-						3:'Rough / Irregular',
-						9:'Undulating',
-						27:'Planar',
-						81:'Clay infilled / Slickensided'}];
-let dataSourceR = [{cat:'Structural Condition',
-						3:'Few differential erosion features',
-						9:'Occasional differential erosion features',
-						27:'Many differential erosion features',
-						81:'Major differential erosion features'}];
-let dataSourceS = [{cat:'Diff. in Erosion Rates',
-						3:'Small difference',
-						9:'Moderate difference',
-						27:'Large difference',
-						81:'Extreme difference'}];
-let dataSourceV = [{cat:'Route Width or Trail Width',
-						3:'36ft <br />14ft',
-						9:'28ft <br />10ft',
-						27:'20ft <br />6ft',
-						81:'12ft <br />2ft'}];
-let dataSourceW = [{cat:'Human Exposure Factor',
-						3:'12.5% of the time',
-						9:'25% of the time',
-						27:'37.5% of the time',
-						81:'50% of the time'}];
-let dataSourceX = [{cat:'% of Decision Sight Distance (Judge avoidance ability on trails)',
-						3:'Adequete, 100% of the low design value',
-						9:'Moderate, 80% of the low design value',
-						27:'Limited, 60% of the low design value',
-						81:'Very limited, 40% of the low design value'}];
-let dataSourceY = [{cat:'Right of Way (R/W) Impacts (If Left Unattended)',
-						3:'No R/W implications',
-						9:'Minor effects beyond R/W',
-						27:'Private property, no structures affected',
-						81:'Structures, roads, RR, utilities, or Parks affected'}];
-let dataSourceZ = [{cat:'Environmental/Cultural Impacts if Left Unattended',
-						3:'None/No Potential to Cause Effects',
-						9:'Likely to Effect/No Hist. Prop. Affected',
-						27:'Likely to adversely Affect/Finding of No Adverse Effect',
-						81:'Current adverse effects/Adverse Effect'}];
-let dataSourceAA = [{cat:'Maintenance Complexity',
-						3:'Routine Effort / In-House',
-						9:'In-House maint. / special project',
-						27:'Specialized equip. / contracts',
-						81:'Complex / dangerous effort / location / contract'}];
-let dataSourceBB = [{cat:'Event Cost',
-						3:'$0-2k',
-						9:'$2-25k',
-						27:'$25-100k',
-						81:'$100k'}];
 					
 		//management area filter					
 	      if (this.state.selectedAgency !='search_0') {
 	        pickerRegion = <Picker itemStyle={{fontSize:14,height:80}} style={styles.picker} style={{ flex:1 }} 
-			enabled={false}
+			enabled={true}
 			selectedValue={this.state.selectedRegion}
-			onValueChange={(value)=>this.setState({selectedRegion:value})}
+			onValueChange={(value)=>this.setState({selectedRegion:value},()=>{
+				this.saveSiteInfo()
+			})}
 			onBlur={()=>this.onBlurInputCheck('selectedRegion')}>
-		    <Picker.Item value="search_0" label="Select State/Region" />
+		    <Picker.Item value="search_0" label="Select State/Region/Territory" />
 		    {this.renderRegion()}
 		  </Picker> ;
 	      } else {
@@ -2509,11 +3016,13 @@ let dataSourceBB = [{cat:'Event Cost',
 		  
 	      if (this.state.selectedRegion !='search_0') {
 			pickerLocal = <Picker itemStyle={{fontSize:14,height:80}} style={styles.picker} style={{flex:1}}
-			enabled={false}
+			enabled={true}
 			selectedValue={this.state.selectedLocal}
-			onValueChange={(value)=>this.setState({selectedLocal:value})}
+			onValueChange={(value)=>this.setState({selectedLocal:value},()=>{
+				this.saveSiteInfo()
+			})}
 			onBlur={()=>this.onBlurInputCheck('selectedLocal')}>
-		    <Picker.Item value="search_0" label="Select Local" />
+		    <Picker.Item value="search_0" label="Select Local/County/Territory" />
 		     {this.renderLocal()}
 		  </Picker> ;
 	      } else {
@@ -2537,11 +3046,144 @@ let dataSourceBB = [{cat:'Event Cost',
              selectedItems={this.state.hazardType}
              onSelectionsChange={this.onSelectionsChange}
 			 onBlur={()=>this.onBlurInputCheck('hazardType')} />;
+			 
+			 //ditchWidth
+			ditchWidth1=<TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.maximumDitchWidth.focus()}}
+			ref={nextInput => this.minimumDitchWidth = nextInput} 
+			keyboardType='numeric'
+			style={{width:40}}
+			value={this.state.minimumDitchWidth}
+			onChangeText={(val)=>this.setState({minimumDitchWidth:val},()=>{
+				this.saveSiteInfo()
+			})}
+			style={styles.textInput}
+			onBlur={()=>this.onBlurInputCheck('minimumDitchWidth')}
+			
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>;
+			
+			ditchWidth2=<TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.minimumDitchDepth.focus()}}
+			ref={nextInput => this.maximumDitchWidth = nextInput} 
+			keyboardType='numeric'
+			style={{width:40}}
+			value={this.state.maximumDitchWidth}
+			onChangeText={(val)=>this.setState({maximumDitchWidth:val},()=>{
+				this.saveSiteInfo()
+			})}
+			style={styles.textInput}
+			onBlur={()=>this.onBlurInputCheck('maximumDitchWidth')}
+			
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>;
+			
+			//ditchDepth
+			ditchDepth1=<TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.maximumDitchDepth.focus()}}
+			ref={nextInput => this.minimumDitchDepth = nextInput} 
+			keyboardType='numeric'
+			style={{width:40}}
+			value={this.state.minimumDitchDepth}
+			onChangeText={(val)=>this.setState({minimumDitchDepth:val},()=>{
+				this.saveSiteInfo()
+			})}
+			style={styles.textInput}
+			onBlur={()=>this.onBlurInputCheck('minimumDitchDepth')}
+			
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>;
+		
+			ditchDepth2=<TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.firstBeginDitchSlope.focus()}}
+			ref={nextInput => this.maximumDitchDepth = nextInput} 
+			keyboardType='numeric'
+			style={{width:40}}
+			value={this.state.maximumDitchDepth}
+			onChangeText={(val)=>this.setState({maximumDitchDepth:val},()=>{
+				this.saveSiteInfo()
+			})}
+			style={styles.textInput}
+			onBlur={()=>this.onBlurInputCheck('maximumDitchDepth')}
+			
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>;
+			
+			//ditchSlope
+			ditchSlope1=<TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.firstEndDitchSlope.focus()}}
+			ref={nextInput => this.firstBeginDitchSlope = nextInput}
+			keyboardType='numeric'
+			style={{width:40}}
+			value={this.state.firstBeginDitchSlope}
+			onChangeText={(val)=>this.setState({firstBeginDitchSlope:val},()=>{
+				this.saveSiteInfo()
+			})}
+			style={styles.textInput}
+			onBlur={()=>this.onBlurInputCheck('firstBeginDitchSlope')}
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>;
+			
+			ditchSlope2=<TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.secondBeginDitchSlope.focus()}}
+			ref={nextInput => this.firstEndDitchSlope = nextInput}
+			keyboardType='numeric'
+			style={{width:40}}
+			value={this.state.firstEndDitchSlope}
+			onChangeText={(val)=>this.setState({firstEndDitchSlope:val},()=>{
+				this.saveSiteInfo()
+			})}
+			style={styles.textInput}
+			onBlur={()=>this.onBlurInputCheck('firstEndDitchSlope')}
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>;
+			
+			ditchSlope3=<TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.secondEndDitchSlope.focus()}}
+			ref={nextInput => this.secondBeginDitchSlope = nextInput}
+			keyboardType='numeric'
+			style={{width:40}}
+			value={this.state.secondBeginDitchSlope}
+			onChangeText={(val)=>this.setState({secondBeginDitchSlope:val},()=>{
+				this.saveSiteInfo()
+			})}
+			style={styles.textInput}
+			onBlur={()=>this.onBlurInputCheck('secondBeginDitchSlope')}
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>;
+			
+			ditchSlope4=<TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.blkSize.focus()}}
+			ref={nextInput => this.secondEndDitchSlope = nextInput}
+			keyboardType='numeric'
+			style={{width:40}}
+			value={this.state.secondEndDitchSlope}
+			onChangeText={(val)=>this.setState({secondEndDitchSlope:val},()=>{
+				this.saveSiteInfo()
+			})}
+			style={styles.textInput}
+			onBlur={()=>this.onBlurInputCheck('secondEndDitchSlope')}
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>;
 		
 			//bulkSize 
 			bulkSize = <TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.volume.focus()}}
+			ref={nextInput => this.blkSize = nextInput} 
+			keyboardType='numeric' 
 			value={this.state.blkSize}
-			onChangeText={(val)=>this.setState({blkSize:val})}
+			onChangeText={(val)=>this.setState({blkSize:val},()=>{
+				this.saveSiteInfo()
+			})}
 			onBlur={()=>{
 				this.onBlurInputCheck('blkSize');
 				this.blkSizeVolume(this.state.rockfallLandslide);
@@ -2555,8 +3197,14 @@ let dataSourceBB = [{cat:'Event Cost',
 			</TextInput>;
 			//volume
 			volume = <TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {this.startAnnualRainfall.focus()}}
+			ref={nextInput => this.volume = nextInput} 
+			keyboardType='numeric'
 			value={this.state.volume}
-			onChangeText={(val)=>this.setState({volume:val})}
+			onChangeText={(val)=>this.setState({volume:val},()=>{
+				this.saveSiteInfo()
+			})}
 			onBlur={()=>{
 				this.onBlurInputCheck('volume');
 				this.blkSizeVolume(this.state.rockfallLandslide);
@@ -2579,11 +3227,36 @@ let dataSourceBB = [{cat:'Event Cost',
 			inputC = null; 
 			
 			//D
-   			tableD = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceD} />;
+   			//tableD = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceD} />;
+			
+     	  	  tableD =
+       	  	  <RadioForm
+     		  style={{marginLeft:40,}}
+                 radio_props={formSourceD}
+                 initial={this.state.prelimRockfallDitchEffKey}
+     		 	 formHorizontal={false}
+                 onPress={(value) => {
+     				this.setState({prelimRockfallDitchEff:value},()=>{
+  	   				
+  	   				this.saveSiteInfo();
+  					this.prelimRockfallRating(this.state.rockfallLandslide);
+  					this.rockfallHazardTotal(this.state.rockfallLandslide);
+     				});
+     		 		}
+     		 		}
+     				onBlur={()=>{
+  					this.onBlurInputCheck('D');
+  					this.prelimRockfallRating(this.state.rockfallLandslide);
+  					this.rockfallHazardTotal(this.state.rockfallLandslide);
+     			}}
+     		 /> 	;	
  
 			inputD = <TextInput 
+			keyboardType='numeric'
 			value={this.state.prelimRockfallDitchEff}
-			onChangeText={(val)=>this.setState({prelimRockfallDitchEff:val})}
+			onChangeText={(val)=>this.setState({prelimRockfallDitchEff:val},()=>{
+				this.saveSiteInfo();
+			})}
 			style={styles.textInput}
 			onBlur={()=>{
 				this.onBlurInputCheck('D');
@@ -2591,31 +3264,80 @@ let dataSourceBB = [{cat:'Event Cost',
 				this.rockfallHazardTotal(this.state.rockfallLandslide);
 				
 			}}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 			//E
-   			tableE = <Table height={100} columnWidth={60} columns={columns} dataSource={dataSourceE} />;
- 
+   			//tableE = <Table height={100} columnWidth={60} columns={columns} dataSource={dataSourceE} />;
+   	  	  	tableE =
+     	  	  <RadioForm
+   		  	   style={{marginLeft:40,}}
+               radio_props={formSourceE}
+               initial={this.state.prelimRockfallRockfallHistoryKey}
+   		 	   formHorizontal={false}
+               onPress={(value) => {
+   				this.setState({prelimRockfallRockfallHistory:value},()=>{
+	   				
+	   				this.saveSiteInfo();
+					this.prelimRockfallRating(this.state.rockfallLandslide);
+					this.rockfallHazardTotal(this.state.rockfallLandslide);
+   				});
+   		 		}
+   		 		}
+   				onBlur={()=>{
+					this.onBlurInputCheck('E');
+					this.prelimRockfallRating(this.state.rockfallLandslide);
+					this.rockfallHazardTotal(this.state.rockfallLandslide);
+   			}}
+   		 	/> 	;	
+ 		   	
+			
 			inputE = <TextInput 
+			keyboardType='numeric'
 			value={this.state.prelimRockfallRockfallHistory}
-			onChangeText={(val)=>this.setState({prelimRockfallRockfallHistory:val})}
+			onChangeText={(val)=>this.setState({prelimRockfallRockfallHistory:val},()=>{
+				this.saveSiteInfo();
+			})}
 			style={styles.textInput}
+			editable={this.state.aadtCheck}
 			onBlur={()=>{
 				this.onBlurInputCheck('E');
 				this.prelimRockfallRating(this.state.rockfallLandslide);
 				this.rockfallHazardTotal(this.state.rockfallLandslide);
 				
 			}}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 			//F
-   			tableF = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceF} />;
- 
+   			//tableF = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceF} />;
+	  	  	tableF =
+  	  	    <RadioForm
+		  	   style={{marginLeft:40,}}
+               radio_props={formSourceF}
+               initial={this.state.prelimRockfallBlockSizeEventVolKey}
+		 	   formHorizontal={false}
+               onPress={(value) => {
+				this.setState({prelimRockfallBlockSizeEventVol:value},()=>{
+   				
+   				this.saveSiteInfo();
+				this.prelimRockfallRating(this.state.rockfallLandslide);
+				this.rockfallHazardTotal(this.state.rockfallLandslide);
+				});
+		 		}
+		 		}
+				onBlur={()=>{
+				this.onBlurInputCheck('F');
+				this.prelimRockfallRating(this.state.rockfallLandslide);
+				this.rockfallHazardTotal(this.state.rockfallLandslide);
+			}}
+		 	/> 	;	
 			inputF = <TextInput 
+			keyboardType='numeric'
 			value={this.state.prelimRockfallBlockSizeEventVol}
-			onChangeText={(val)=>this.setState({prelimRockfallBlockSizeEventVol:val})}
+			onChangeText={(val)=>this.setState({prelimRockfallBlockSizeEventVol:val},()=>{
+				this.saveSiteInfo();
+			})}
 			style={styles.textInput}
 			onBlur={()=>{
 				this.onBlurInputCheck('F');
@@ -2623,7 +3345,7 @@ let dataSourceBB = [{cat:'Event Cost',
 				this.rockfallHazardTotal(this.state.rockfallLandslide);
 				
 			}}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 				//input Landslide Total
@@ -2634,8 +3356,8 @@ let dataSourceBB = [{cat:'Event Cost',
 			value={this.state.prelimRatingRockfallRotal}
 			editable={false}
 			onChangeText={(val)=>this.setState({prelimRatingRockfallRotal:val})}
-			style={styles.textInput}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			style={styles.textInputGray}
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 			//L
@@ -2649,11 +3371,34 @@ let dataSourceBB = [{cat:'Event Cost',
 			inputN = null;
 			
 			//O
-			tableO = <Table height={130} columnWidth={60} columns={columns} dataSource={dataSourceO} />;
+			//tableO = <Table height={130} columnWidth={60} columns={columns} dataSource={dataSourceO} />;
+  	  	tableO =
+  	  	<RadioForm
+  			style={{marginLeft:40,}}
+       		radio_props={formSourceO}
+       	 	initial={this.state.hazardRockfallMaintFrequencyKey}
+ 	 		formHorizontal={false}
+       	 	onPress={(value) => {
+			this.setState({hazardRockfallMaintFrequency:value},()=>{
+			
+			this.saveSiteInfo();
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('O');
+			//this.prelimRockfallRating(this.state.rockfallLandslide);
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+		}}
+ 		/> 	;
 
 			inputO = <TextInput 
+			keyboardType='numeric'
 			value={this.state.hazardRockfallMaintFrequency}
-			onChangeText={(val)=>this.setState({hazardRockfallMaintFrequency:val})}
+			onChangeText={(val)=>this.setState({hazardRockfallMaintFrequency:val},()=>{
+				this.saveSiteInfo();
+			})}
 			style={styles.textInput}
 			onBlur={()=>{
 				this.onBlurInputCheck('O');
@@ -2661,15 +3406,37 @@ let dataSourceBB = [{cat:'Event Cost',
 				this.rockfallHazardTotal(this.state.rockfallLandslide);
 				
 			}}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 			//P
-			tableP = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceP} />;
-
+			//tableP = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceP} />;
+  	  		tableP =
+  	  		<RadioForm
+  			style={{marginLeft:40,}}
+       		radio_props={formSourceP}
+       	 	initial={this.state.caseOneStrucCondKey}
+ 	 		formHorizontal={false}
+       	 	onPress={(value) => {
+			this.setState({caseOneStrucCond:value},()=>{
+			this.saveSiteInfo();
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			});
+ 			}
+ 			}
+			onBlur={()=>{
+			this.onBlurInputCheck('P');
+			//this.prelimRockfallRating(this.state.rockfallLandslide);
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			}}
+ 			/> 	;
+			
 			inputP = <TextInput 
+			keyboardType='numeric'
 			value={this.state.caseOneStrucCond}
-			onChangeText={(val)=>this.setState({caseOneStrucCond:val})}
+			onChangeText={(val)=>this.setState({caseOneStrucCond:val},()=>{
+				this.saveSiteInfo();
+			})}
 			style={styles.textInput}
 			onBlur={()=>{
 				this.onBlurInputCheck('P');
@@ -2677,15 +3444,37 @@ let dataSourceBB = [{cat:'Event Cost',
 				this.rockfallHazardTotal(this.state.rockfallLandslide);
 				
 			}}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 			//Q
-			tableQ = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceQ} />;
-
+			//tableQ = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceQ} />;
+  	  		tableQ =
+  	  		<RadioForm
+  			style={{marginLeft:40,}}
+       		radio_props={formSourceQ}
+       	 	initial={this.state.caseOneRockFrictionKey}
+ 	 		formHorizontal={false}
+       	 	onPress={(value) => {
+			this.setState({caseOneRockFriction:value},()=>{
+			this.saveSiteInfo();
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			});
+ 			}
+ 			}
+			onBlur={()=>{
+			this.onBlurInputCheck('Q');
+			//this.prelimRockfallRating(this.state.rockfallLandslide);
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			}}
+ 			/> 	;
+			
 			inputQ = <TextInput 
+			keyboardType='numeric'
 			value={this.state.caseOneRockFriction}
-			onChangeText={(val)=>this.setState({caseOneRockFriction:val})}
+			onChangeText={(val)=>this.setState({caseOneRockFriction:val},()=>{
+				this.saveSiteInfo();
+			})}
 			style={styles.textInput}
 			onBlur={()=>{
 				this.onBlurInputCheck('Q');
@@ -2693,15 +3482,37 @@ let dataSourceBB = [{cat:'Event Cost',
 				this.rockfallHazardTotal(this.state.rockfallLandslide);
 				
 			}}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 			//R
-			tableR = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceR} />;
-
-			inputR = <TextInput 
+			//tableR = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceR} />;
+  	  		tableR =
+  	  		<RadioForm
+  			style={{marginLeft:40,}}
+       		radio_props={formSourceR}
+       	 	initial={this.state.caseTwoStrucConditionKey}
+ 	 		formHorizontal={false}
+       	 	onPress={(value) => {
+			this.setState({caseTwoStrucCondition:value},()=>{
+			this.saveSiteInfo();
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			});
+ 			}
+ 			}
+			onBlur={()=>{
+			this.onBlurInputCheck('R');
+			//this.prelimRockfallRating(this.state.rockfallLandslide);
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			}}
+ 			/> 	;
+			
+			inputR = <TextInput
+			keyboardType='numeric' 
 			value={this.state.caseTwoStrucCondition}
-			onChangeText={(val)=>this.setState({caseTwoStrucCondition:val})}
+			onChangeText={(val)=>this.setState({caseTwoStrucCondition:val},()=>{
+				this.saveSiteInfo();
+			})}
 			style={styles.textInput}
 			onBlur={()=>{
 				this.onBlurInputCheck('R');
@@ -2709,23 +3520,47 @@ let dataSourceBB = [{cat:'Event Cost',
 				this.rockfallHazardTotal(this.state.rockfallLandslide);
 				
 			}}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 			//S
-			tableS = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceS} />;
-
+			//tableS = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceS} />;
+  	  		tableS =
+  	  		<RadioForm
+  			style={{marginLeft:40,}}
+       		radio_props={formSourceS}
+       	 	initial={this.state.caseTwoDiffErosionKey}
+ 	 		formHorizontal={false}
+       	 	onPress={(value) => {
+			this.setState({caseTwoDiffErosion:value},()=>{
+			this.saveSiteInfo();
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			});
+ 			}
+ 			}
+			onBlur={()=>{
+			this.onBlurInputCheck('S');
+			//this.prelimRockfallRating(this.state.rockfallLandslide);
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			}}
+ 			/> 	;
+			
 			inputS = <TextInput 
+			keyboardType='numeric'
 			value={this.state.caseTwoDiffErosion}
-			onChangeText={(val)=>this.setState({caseTwoDiffErosion:val})}
+			onChangeText={(val)=>this.setState({caseTwoDiffErosion:val},()=>{
+				//alert("ch rk"+this.state.hazardRatingRockfallTotal);
+				this.saveSiteInfo();
+			})}
 			style={styles.textInput}
 			onBlur={()=>{
 				this.onBlurInputCheck('S');
+				//alert(this.state.hazardRatingRockfallTotal);
 				//this.prelimRockfallRating(this.state.rockfallLandslide);
 				this.rockfallHazardTotal(this.state.rockfallLandslide);
-				
+				//this.saveSiteInfo();
 			}}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 			//T
@@ -2737,8 +3572,8 @@ let dataSourceBB = [{cat:'Event Cost',
 			value={this.state.hazardRatingRockfallTotal}
 			editable={false}
 			onChangeText={(val)=>this.setState({hazardRatingRockfallTotal:val})}
-			style={styles.textInput}
-			placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+			style={styles.textInputGray}
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 			</TextInput>;
 			
 			//landslide
@@ -2754,6 +3589,17 @@ let dataSourceBB = [{cat:'Event Cost',
              items={filteredAssets}
              selectedItems={this.state.hazardType}
              onSelectionsChange={this.onSelectionsChange} />;
+			 //ditchWidth
+			 ditchWidth1=null;
+			 ditchWidth2=null;
+			 //ditchDepth
+			 ditchDepth1=null;
+			 ditchDepth2=null;
+			 //ditchSlope
+			 ditchSlope1=null;
+			 ditchSlope2=null;
+			 ditchSlope3=null;
+			 ditchSlope4=null;
 			 //bulkSize
 			 bulkSize = null;
 			// this.setState({blkSize:'0'});
@@ -2763,10 +3609,34 @@ let dataSourceBB = [{cat:'Event Cost',
 			// this.onRockfallLandslideChange;
 			// this.setState({volume:'0'});
 			//A
- 	   			tableA = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceA} />;
+ 	   			//tableA = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceA} />;
+     	  	  tableA =
+       	  	  <RadioForm
+     		  style={{marginLeft:40,}}
+                 radio_props={formSourceA}
+                 initial={this.state.prelimLandslideRoadWidthAffectedKey}
+     		 	 formHorizontal={false}
+                 onPress={(value) => {
+     				   this.setState({prelimLandslideRoadWidthAffected:value},()=>{
+  	   					    this.saveSiteInfo();
+ 							this.prelimLandslideRating(this.state.rockfallLandslide);
+ 							this.landslideHazardTotal(this.state.rockfallLandslide);
+     				});
+     		 		}
+     		 		}
+     				onBlur={()=>{
+						this.onBlurInputCheck('A');
+						this.prelimLandslideRating(this.state.rockfallLandslide);
+						this.landslideHazardTotal(this.state.rockfallLandslide);
+     			}}
+     		 	/> 	;	
+			 
 				inputA = <TextInput 
+				keyboardType='numeric'
 				value={this.state.prelimLandslideRoadWidthAffected}
-				onChangeText={(val)=>this.setState({prelimLandslideRoadWidthAffected:val},()=>{})}
+				onChangeText={(val)=>this.setState({prelimLandslideRoadWidthAffected:val},()=>{
+					this.saveSiteInfo();
+				})}
 				style={styles.textInput}
 				onBlur={()=>{
 					this.onBlurInputCheck('A');
@@ -2774,15 +3644,38 @@ let dataSourceBB = [{cat:'Event Cost',
 					this.landslideHazardTotal(this.state.rockfallLandslide);
 					
 				}}
-				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 				</TextInput>;
 				
 			//B
-				tableB = <Table height={220} columnWidth={60} columns={columns} dataSource={dataSourceB} />;
-     
+				//tableB = <Table height={220} columnWidth={60} columns={columns} dataSource={dataSourceB} />;
+       	  	  	tableB =
+         	  	<RadioForm
+       		  	style={{marginLeft:40,}}
+                   radio_props={formSourceB}
+                   initial={this.state.prelimLandslideSlideErosionEffectsKey}
+       		 	   formHorizontal={false}
+                   onPress={(value) => {
+       				   this.setState({prelimLandslideSlideErosionEffects:value},()=>{
+    	   					this.saveSiteInfo();
+   							this.prelimLandslideRating(this.state.rockfallLandslide);
+   							this.landslideHazardTotal(this.state.rockfallLandslide);
+       				});
+       		 		}
+       		 		}
+       				onBlur={()=>{
+  						this.onBlurInputCheck('B');
+  						this.prelimLandslideRating(this.state.rockfallLandslide);
+  						this.landslideHazardTotal(this.state.rockfallLandslide);
+       			}}
+       		 	/> 	;
+				
 				inputB = <TextInput 
+				keyboardType='numeric'
 				value={this.state.prelimLandslideSlideErosionEffects}
-				onChangeText={(val)=>this.setState({prelimLandslideSlideErosionEffects:val})}
+				onChangeText={(val)=>this.setState({prelimLandslideSlideErosionEffects:val},()=>{
+					this.saveSiteInfo();
+				})}
 				style={styles.textInput}
 				onBlur={()=>{
 					this.onBlurInputCheck('B');
@@ -2790,23 +3683,47 @@ let dataSourceBB = [{cat:'Event Cost',
 					this.landslideHazardTotal(this.state.rockfallLandslide);
 					
 				}}
-				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 				</TextInput>	;
 				
 				//C
- 	   			tableC = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceC} />;
-     
+ 	   			//tableC = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceC} />;
+    	  	  	tableC =
+      	  	    <RadioForm
+    		  	style={{marginLeft:40,}}
+                radio_props={formSourceC}
+                initial={this.state.prelimLandslideLengthAffectedKey}
+    		 	formHorizontal={false}
+                onPress={(value) => {
+    				   this.setState({prelimLandslideLengthAffected:value},()=>{
+ 	   					this.saveSiteInfo();
+						this.prelimLandslideRating(this.state.rockfallLandslide);
+						this.landslideHazardTotal(this.state.rockfallLandslide);
+    				});
+    		 		}
+    		 		}
+    				onBlur={()=>{
+					this.onBlurInputCheck('C');
+					this.prelimLandslideRating(this.state.rockfallLandslide);
+					this.landslideHazardTotal(this.state.rockfallLandslide);
+    			}}
+    		 	/> 	;	
+				
 				inputC = <TextInput 
+				keyboardType='numeric'
 				value={this.state.prelimLandslideLengthAffected}
-				onChangeText={(val)=>this.setState({prelimLandslideLengthAffected:val})}
+				onChangeText={(val)=>this.setState({prelimLandslideLengthAffected:val},()=>{
+					this.saveSiteInfo();
+				})}
 				style={styles.textInput}
+				editable={this.state.aadtCheck}
 				onBlur={()=>{
 					this.onBlurInputCheck('C');
 					this.prelimLandslideRating(this.state.rockfallLandslide);
 					this.landslideHazardTotal(this.state.rockfallLandslide);
 					
 				}}
-				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 				</TextInput>;
 				
 				//D
@@ -2826,56 +3743,125 @@ let dataSourceBB = [{cat:'Event Cost',
 				value={this.state.prelimRatingLandslideTotal}
 				editable={false}
 				onChangeText={(val)=>this.setState({prelimRatingLandslideTotal:val})}
-				style={styles.textInput}
-				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+				style={styles.textInputGray}
+				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 				</TextInput>;
 				
 		   //input Rockfall Total
 				inputRockTotal = null;
 				
 				//L
-				tableL = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceL} />;
-
+				//tableL = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceL} />;
+       	  	    tableL =
+         	  	<RadioForm
+       		       style={{marginLeft:40,}}
+                   radio_props={formSourceL}
+                   initial={this.state.hazardLandslideThawStabilityKey}
+       		 	   formHorizontal={false}
+                   onPress={(value) => {
+       				   this.setState({hazardLandslideThawStability:value},()=>{
+    	   					this.saveSiteInfo();
+   								//this.prelimLandslideRating(this.state.rockfallLandslide);
+   							this.landslideHazardTotal(this.state.rockfallLandslide);
+       				});
+       		 		}
+       		 		}
+       				onBlur={()=>{
+  						this.onBlurInputCheck('L');
+  						//this.prelimLandslideRating(this.state.rockfallLandslide);
+  						this.landslideHazardTotal(this.state.rockfallLandslide);
+       			}}
+       		 	/> 	;	
+				
 				inputL = <TextInput 
+				keyboardType='numeric'
 				value={this.state.hazardLandslideThawStability}
-				onChangeText={(val)=>this.setState({hazardLandslideThawStability:val})}
+				onChangeText={(val)=>this.setState({hazardLandslideThawStability:val},()=>{
+					this.saveSiteInfo();
+				})}
 				style={styles.textInput}
 				onBlur={()=>{
 					this.onBlurInputCheck('L');
 					this.landslideHazardTotal(this.state.rockfallLandslide);
 					
 				}}
-				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 				</TextInput>;
 				
 				//M
-				tableM = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceM} />;
-
+				//tableM = <Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceM} />;
+   	  	  	  tableM =
+     	  	  <RadioForm
+   		  	   style={{marginLeft:40,}}
+               radio_props={formSourceM}
+               initial={this.state.hazardLandslideMaintFrequencyKey}
+   		 	   formHorizontal={false}
+               onPress={(value) => {
+   				   this.setState({hazardLandslideMaintFrequency:value},()=>{
+	   					this.saveSiteInfo();
+							//this.prelimLandslideRating(this.state.rockfallLandslide);
+						this.landslideHazardTotal(this.state.rockfallLandslide);
+   				});
+   		 		}
+   		 		}
+   				onBlur={()=>{
+					this.onBlurInputCheck('M');
+					//this.prelimLandslideRating(this.state.rockfallLandslide);
+					this.landslideHazardTotal(this.state.rockfallLandslide);
+   			}}
+   		 	/> 	;	
+				
 				inputM = <TextInput 
+				keyboardType='numeric'
 				value={this.state.hazardLandslideMaintFrequency}
-				onChangeText={(val)=>this.setState({hazardLandslideMaintFrequency:val})}
+				onChangeText={(val)=>this.setState({hazardLandslideMaintFrequency:val},()=>{
+					this.saveSiteInfo();
+				})}
 				style={styles.textInput}
 				onBlur={()=>{
 					this.onBlurInputCheck('M');
 					this.landslideHazardTotal(this.state.rockfallLandslide);
 					
 				}}
-				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 				</TextInput>;
 				
 				//N
-				tableN = <Table height={200} columnWidth={60} columns={columns} dataSource={dataSourceN} />;
-
+				//tableN = <Table height={200} columnWidth={60} columns={columns} dataSource={dataSourceN} />;
+   	  	  	tableN =
+     	  	  <RadioForm
+   		  	   style={{marginLeft:40,}}
+               radio_props={formSourceN}
+               initial={this.state.hazardLandslideMovementHistoryKey}
+   		 	   formHorizontal={false}
+               onPress={(value) => {
+   				   this.setState({hazardLandslideMovementHistory:value},()=>{
+	   					this.saveSiteInfo();
+							//this.prelimLandslideRating(this.state.rockfallLandslide);
+						this.landslideHazardTotal(this.state.rockfallLandslide);
+   				});
+   		 		}
+   		 		}
+   				onBlur={()=>{
+					this.onBlurInputCheck('N');
+					//this.prelimLandslideRating(this.state.rockfallLandslide);
+					this.landslideHazardTotal(this.state.rockfallLandslide);
+   			}}
+   		 	/> 	;	
+				
 				inputN = <TextInput 
+				keyboardType='numeric'
 				value={this.state.hazardLandslideMovementHistory}
-				onChangeText={(val)=>this.setState({hazardLandslideMovementHistory:val})}
+				onChangeText={(val)=>this.setState({hazardLandslideMovementHistory:val},()=>{
+					this.saveSiteInfo();
+				})}
 				style={styles.textInput}
 				onBlur={()=>{
 					this.onBlurInputCheck('N');
 					this.landslideHazardTotal(this.state.rockfallLandslide);
 					
 				}}
-				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 				</TextInput>;
 				
 				//O
@@ -2900,8 +3886,8 @@ let dataSourceBB = [{cat:'Event Cost',
 				value={this.state.hazardRatingLandslideTotal}
 				editable={false}
 				onChangeText={(val)=>this.setState({hazardRatingLandslideTotal:val})}
-				style={styles.textInput}
-				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+				style={styles.textInputGray}
+				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 				</TextInput>;
 				
 				//U
@@ -2917,11 +3903,15 @@ let dataSourceBB = [{cat:'Event Cost',
     return (
       <View style={styles.container}>
       	<View style={styles.header}>
+  	  		<Icon name="menu" 
+			style={{marginTop:20,marginRight:Dimensions.get('window').width*0.38,color:'white'}} 
+			size={40} 
+			backgroundColor="#3b5998" 
+			onPress={() => this.props.navigation.navigate('DrawerOpen')}>
+  	  		</Icon>
      		<Text 
 			style={styles.headerText}
 			onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-  	  		<Icon name="menu" iconStyle={{marginTop:0,marginRight:200}} size={40} backgroundColor="#3b5998" onPress={this.openDrawer}>
-  	  		</Icon>
 			 Offline ID : {this.state.id}
 			</Text>
 		
@@ -2944,7 +3934,7 @@ let dataSourceBB = [{cat:'Event Cost',
  		    <Picker.Item value="FS" label="FS"  />
  			<Picker.Item value="NPS" label="NPS"  />
  		    <Picker.Item value="BLM" label="BLM"  />
- 			<Picker.Item value="BIA" label="BIA"  />
+			<Picker.Item value="OTHER" label="OTHER"  />
  		  </Picker>	
  		  <View style={styles.borderLine} />	
 				
@@ -2967,7 +3957,7 @@ let dataSourceBB = [{cat:'Event Cost',
  	         placeholder="select date"
  	         format="YYYY-MM-DD hh:mm:ss"
  	         minDate="2016-05-01"
- 	         maxDate="2020-12-31"
+ 	         maxDate="2050-12-31"
  	         confirmBtnText="Confirm"
  	         cancelBtnText="Cancel"
  	         customStyles={{
@@ -2982,10 +3972,12 @@ let dataSourceBB = [{cat:'Event Cost',
  	           }
  	           // ... You can check the source to find the other keys. 
  	         }}
- 	         onDateChange={(date) => {this.setState({date: date})}}
+ 	         onDateChange={(date) => {this.setState({date: date},()=>{
+ 	         	this.saveSiteInfo()
+ 	         })}}
  			 onBlur={()=>this.onBlurInputCheck('date')}
  	       />
-			 
+			 <Text> <Text style={styles.labelText}>Old Date:</Text>{this.state.oldDate}</Text>
  		</View>
   		<View style={styles.borderLine} />	
 			 
@@ -3024,8 +4016,12 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
     		  <Text style={styles.labelText}>Road/Trail No:</Text>
  				<TextInput 
+				returnKeyType={'next'}
+				onSubmitEditing={() => {this.rtClass.focus()}}
 				value={this.state.rtNo}
- 				onChangeText={(val)=>this.setState({rtNo:val})}
+ 				onChangeText={(val)=>this.setState({rtNo:val},()=>{
+ 					this.saveSiteInfo()
+ 				})}
  				style={styles.textInput}
  				onBlur={()=>this.onBlurInputCheck('rtNo')}
  				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
@@ -3037,12 +4033,14 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1, }}>
     		  <Text style={styles.labelText}>Road/Trail:</Text>
        	  <RadioForm
+				 style={{marginLeft:40,}}
                  radio_props={roadOrTrail}
                  initial={this.state.roadOrTrailKey}
     			 formHorizontal={true}
                  onPress={(value) => {
  					this.setState({roadOrTrail:value},()=>{
  						this.routeTrailWidth();
+						this.saveSiteInfo();
  					});
 					
     				 //alert(this.state.rockfallLandslide)
@@ -3060,8 +4058,13 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  	   		  <Text style={styles.labelText}>Road/Trail Class:</Text>
  				<TextInput
+				returnKeyType={'next'}
+				onSubmitEditing={() => {this.rater.focus()}}
+				ref={nextInput => this.rtClass = nextInput} 
 				value={this.state.rtClass} 
- 				onChangeText={(val)=>this.setState({rtClass:val})}
+ 				onChangeText={(val)=>this.setState({rtClass:val},()=>{
+ 					this.saveSiteInfo()
+ 				})}
  				style={styles.textInput}
  				onBlur={()=>this.onBlurInputCheck('rtClass')}
 				
@@ -3074,8 +4077,13 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  		   		  <Text style={styles.labelText}>Rater:</Text>
  					<TextInput 
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.beginMileMarker.focus()}}
+					ref={nextInput => this.rater = nextInput}
 					value={this.state.rater} 
- 					onChangeText={(val)=>this.setState({rater:val})}
+ 					onChangeText={(val)=>this.setState({rater:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					style={styles.textInput}
  					onBlur={()=>this.onBlurInputCheck('rater')}
 				
@@ -3088,8 +4096,14 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  			   		  <Text style={styles.labelText}>Beginning Mile Marker:</Text>
  						<TextInput
+						returnKeyType={'next'}
+						onSubmitEditing={() => {this.endMileMarker.focus()}}
+						ref={nextInput => this.beginMileMarker = nextInput}
+						keyboardType='numeric'
 						value={this.state.beginMileMarker}  
- 						onChangeText={(val)=>this.setState({beginMileMarker:val})}
+ 						onChangeText={(val)=>this.setState({beginMileMarker:val},()=>{
+ 							this.saveSiteInfo()
+ 						})}
  						style={styles.textInput}
  						onBlur={()=>this.onBlurInputCheck('beginMileMarker')}
 				
@@ -3102,8 +4116,14 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  				   		  <Text style={styles.labelText}>Ending Mile Marker:</Text>
  							<TextInput 
+							returnKeyType={'next'}
+							onSubmitEditing={() => {this.beginCoordinateLatitude.focus()}}
+							ref={nextInput => this.endMileMarker = nextInput}
+							keyboardType='numeric'
 							value={this.state.endMileMarker}
- 							onChangeText={(val)=>this.setState({endMileMarker:val})}
+ 							onChangeText={(val)=>this.setState({endMileMarker:val},()=>{
+ 								this.saveSiteInfo()
+ 							})}
  							style={styles.textInput}
  							onBlur={()=>this.onBlurInputCheck('endMileMarker')}
 				
@@ -3117,7 +4137,9 @@ let dataSourceBB = [{cat:'Event Cost',
  				<Text style={styles.labelText}>Side:</Text>
  				<Picker itemStyle={{fontSize:14,height:80}} style={styles.picker} style={{ flex:1 }} 
  				selectedValue={this.state.side}
- 				onValueChange={(value)=>this.setState({side:value})}
+ 				onValueChange={(value)=>this.setState({side:value},()=>{
+ 					this.saveSiteInfo()
+ 				})}
  				onBlur={()=>this.onBlurInputCheck('side')}>
  					{this.renderSide()}
  				</Picker>		   	
@@ -3129,7 +4151,9 @@ let dataSourceBB = [{cat:'Event Cost',
  				<Text style={styles.labelText}>Weather:</Text>
  				<Picker itemStyle={{fontSize:14,height:80}} style={styles.picker} style={{ flex:1 }} 
  				selectedValue={this.state.weather}
- 				onValueChange={(value)=>this.setState({weather:value})}
+ 				onValueChange={(value)=>this.setState({weather:value},()=>{
+ 					this.saveSiteInfo()
+ 				})}
  				onBlur={()=>this.onBlurInputCheck('weather')}>
  					{this.renderWeather()}
  				</Picker>		   	
@@ -3140,19 +4164,30 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  		   		  <Text style={styles.labelText}>Begin Coord. Lat/Long:</Text>
       				<TouchableHighlight 
- 						style={{height:20,width:90,backgroundColor:'#32cd32',}} 
+ 						style={{height:20,width:90,backgroundColor:'#32cd32',marginLeft:20,}} 
  						onPress={this.getBeginCoordinates.bind(this)}>
  						<Text style={{fontSize:14,padding:1,}}>Get Coord</Text>
  					</TouchableHighlight>
  					<TextInput 
- 					onChangeText={(val)=>this.setState({beginCoordinateLatitude:val})}
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.beginCoordinateLongitude.focus()}}
+					ref={nextInput => this.beginCoordinateLatitude = nextInput}	
+					keyboardType='numeric'	
+ 					onChangeText={(val)=>this.setState({beginCoordinateLatitude:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					value={this.state.beginCoordinateLatitude}
  					style={styles.textInput}
  					onBlur={()=>this.onBlurInputCheck('beginCoordinateLatitude')}
  					placeholder='Lat (##.#####)' placeholderTextColor='blue' underLineColor='transparent'>
  					</TextInput>
- 					<TextInput 
- 					onChangeText={(val)=>this.setState({beginCoordinateLongitude:val})}
+ 					<TextInput
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.endCoordinateLatitude.focus()}}
+					ref={nextInput => this.beginCoordinateLongitude = nextInput}	
+ 					onChangeText={(val)=>this.setState({beginCoordinateLongitude:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					style={styles.textInput}
  					value={this.state.beginCoordinateLongitude}
  					onBlur={()=>this.onBlurInputCheck('beginCoordinateLongitude')}
@@ -3164,19 +4199,30 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  		   		  <Text style={styles.labelText}>End Coord. Lat/Long:</Text>
       		<TouchableHighlight 
- 					style={{height:20,width:90,backgroundColor:'#32cd32',}}
+ 					style={{height:20,width:90,backgroundColor:'#32cd32',marginLeft:20,}}
  					onPress={this.getEndCoordinates.bind(this)}>
  					<Text style={{fontSize:14,padding:1,}}>Get Coord</Text>
  			</TouchableHighlight>
  					<TextInput 
- 					onChangeText={(val)=>this.setState({endCoordinateLatitude:val})}
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.endCoordinateLongitude.focus()}}
+					ref={nextInput => this.endCoordinateLatitude = nextInput}	
+					keyboardType='numeric'
+ 					onChangeText={(val)=>this.setState({endCoordinateLatitude:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					style={styles.textInput}
  					value={this.state.endCoordinateLatitude}
  					onBlur={()=>this.onBlurInputCheck('endCoordinateLatitude')}
  					placeholder='Lat (##.#####)' placeholderTextColor='blue' underLineColor='transparent'>
  					</TextInput>
  					<TextInput 
- 					onChangeText={(val)=>this.setState({endCoordinateLongitude:val})}
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.aadt.focus()}}
+					ref={nextInput => this.endCoordinateLongitude = nextInput}
+ 					onChangeText={(val)=>this.setState({endCoordinateLongitude:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					style={styles.textInput}
  					value={this.state.endCoordinateLongitude}
  					onBlur={()=>this.onBlurInputCheck('endCoordinateLongitude')}
@@ -3191,7 +4237,7 @@ let dataSourceBB = [{cat:'Event Cost',
  					<TextInput 
  					value={this.state.datum}
  					onChangeText={(val)=>this.setState({datum:val})}
- 					style={styles.textInput}
+ 					style={styles.textInputGray}
  					editable={false}
  					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  					</TextInput>
@@ -3202,8 +4248,14 @@ let dataSourceBB = [{cat:'Event Cost',
          <View style={{flex:1,}}>
  		   		  <Text style={styles.labelText}>AADT:</Text>
  					<TextInput 
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.lengthAffected_.focus()}}
+					ref={nextInput => this.aadt = nextInput}
+					keyboardType='numeric'
  					value={this.state.aadt}
- 					onChangeText={(val)=>this.setState({aadt:val})}
+ 					onChangeText={(val)=>this.setState({aadt:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					onBlur={()=>{
  						this.onBlurInputCheck('aadt');
  						this.prelimAadt(this.state.aadtUsageCalcCheckbox);
@@ -3223,8 +4275,14 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  		   		  <Text style={styles.labelText}>Length of Affected Road/Trail (ft):</Text>
  					<TextInput 
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.slopeHeightAxialLength_.focus()}}
+					ref={nextInput => this.lengthAffected_ = nextInput}
+					keyboardType='numeric'
  					value={this.state.lengthAffected}
- 					onChangeText={(val)=>this.setState({lengthAffected:val})}
+ 					onChangeText={(val)=>this.setState({lengthAffected:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					onBlur={()=>{
  						this.onBlurInputCheck('lengthAffected');
  						this.lengthAffected(this.state.rockfallLandslide);
@@ -3243,9 +4301,15 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  		   		  <Text style={styles.labelText}>Slope Height (rock)/Axial Length (slide) (ft):</Text>
  					<TextInput 
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.slopeAngle.focus()}}
+					ref={nextInput => this.slopeHeightAxialLength_ = nextInput}
+					keyboardType='numeric'
  					value={this.state.slopeHeightAxialLength}
  					onChangeText={(val)=>this.setState({slopeHeightAxialLength:val},()=>{
- 						this.slopeHeightAxialLength()})}
+ 						this.slopeHeightAxialLength();
+						this.saveSiteInfo()
+					})}
  					style={styles.textInput}
  					onBlur={()=>{
  						this.onBlurInputCheck('slopeHeightAxialLength');
@@ -3262,9 +4326,15 @@ let dataSourceBB = [{cat:'Event Cost',
 		
  		<View style={{flex:1,}}>
  					<Text style={styles.labelText}>Slope Angle {String.fromCharCode(176)}:</Text>
- 					<TextInput 
+ 					<TextInput
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.sightDistance.focus()}}
+					ref={nextInput => this.slopeAngle = nextInput} 
+					keyboardType='numeric'
  					value={this.state.slopeAngle}
- 					onChangeText={(val)=>this.setState({slopeAngle:val})}
+ 					onChangeText={(val)=>this.setState({slopeAngle:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					style={styles.textInput}
  					onBlur={()=>this.onBlurInputCheck('slopeAngle')}
  					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
@@ -3276,8 +4346,14 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  					<Text style={styles.labelText}>Sight Distance (ft):</Text>
  					<TextInput 
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.roadTrailWidth.focus()}}
+					ref={nextInput => this.sightDistance = nextInput} 
+					keyboardType='numeric'
  					value={this.state.sightDistance}
- 					onChangeText={(val)=>this.setState({sightDistance:val})}
+ 					onChangeText={(val)=>this.setState({sightDistance:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					style={styles.textInput}
  					onBlur={()=>{
  						this.onBlurInputCheck('sightDistance');
@@ -3292,10 +4368,17 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={styles.borderLine} />
 		
  		<View style={{flex:1,}}>
- 					<Text style={styles.labelText}>Roadway/Trail width (ft):</Text>
+ 					<Text style={styles.labelText}>Usable Roadway/Trail width (ft):</Text>
  					<TextInput 
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.speedLimit.focus()}}
+					ref={nextInput => this.roadTrailWidth = nextInput} 
+					keyboardType='numeric'
  					value={this.state.roadTrailWidth}
- 					onChangeText={(val)=>this.setState({roadTrailWidth:val},()=>{this.routeTrailWidth()})}
+ 					onChangeText={(val)=>this.setState({roadTrailWidth:val},()=>{
+						this.routeTrailWidth();
+						this.saveSiteInfo()
+					})}
  					style={styles.textInput}
  					onBlur={()=>{
  						this.onBlurInputCheck('roadTrailWidth');
@@ -3310,8 +4393,14 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={{flex:1,}}>
  					<Text style={styles.labelText}>Speed Limit (mph):</Text>
  					<TextInput 
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.minimumDitchWidth.focus()}}
+					ref={nextInput => this.speedLimit = nextInput} 
+					keyboardType='numeric'
  					value={this.state.speedLimit}
- 					onChangeText={(val)=>this.setState({speedLimit:val})}
+ 					onChangeText={(val)=>this.setState({speedLimit:val},()=>{
+ 						this.saveSiteInfo()
+ 					})}
  					style={styles.textInput}
  					onBlur={()=>{
  						this.onBlurInputCheck('speedLimit');
@@ -3327,89 +4416,34 @@ let dataSourceBB = [{cat:'Event Cost',
 					
  		<View style={{flex:1,}}>
  					<Text style={styles.labelText}>Ditch Width Range (ft):</Text>	
- 					<TextInput style={{width:40}}
- 					value={this.state.minimumDitchWidth}
- 					onChangeText={(val)=>this.setState({minimumDitchWidth:val})}
- 					style={styles.textInput}
- 					onBlur={()=>this.onBlurInputCheck('minimumDitchWidth')}
-					
- 					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
- 					</TextInput>
- 					<Text>-</Text>
- 					<TextInput style={{width:40}}
- 					value={this.state.maximumDitchWidth}
- 					onChangeText={(val)=>this.setState({maximumDitchWidth:val})}
- 					style={styles.textInput}
- 					onBlur={()=>this.onBlurInputCheck('maximumDitchWidth')}
-					
- 					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
- 					</TextInput>
- 
+					{ditchWidth1}	
+					<Text style={styles.signText}>-</Text>
+ 				    {ditchWidth2}
  		</View>	
  		<View style={styles.borderLine} />			
 		
  		<View style={{flex:1,}}>
- 					<Text style={styles.labelText}>Ditch Depth Range (ft):</Text>	
- 					<TextInput style={{width:40}}
- 					value={this.state.minimumDitchDepth}
- 					onChangeText={(val)=>this.setState({minimumDitchDepth:val})}
- 					style={styles.textInput}
- 					onBlur={()=>this.onBlurInputCheck('minimumDitchDepth')}
-					
- 					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
- 					</TextInput>
- 					<Text>-</Text>
- 					<TextInput style={{width:40}}
- 					value={this.state.maximumDitchDepth}
- 					onChangeText={(val)=>this.setState({maximumDitchDepth:val})}
- 					style={styles.textInput}
- 					onBlur={()=>this.onBlurInputCheck('maximumDitchDepth')}
-					
- 					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
- 					</TextInput>
- 
+ 					<Text style={styles.labelText}>Ditch Depth Range (ft):</Text>
+					{ditchDepth1}
+					<Text style={styles.signText}>-</Text>
+					{ditchDepth2}	
  		</View>	
  		<View style={styles.borderLine} />	
 		
  		<View style={{flex:1,}}>
  					<Text style={styles.labelText}>Ditch Slope Range (H:V): </Text>	
- 					<TextInput style={{width:40}}
- 					value={this.state.firstBeginDitchSlope}
- 					onChangeText={(val)=>this.setState({firstBeginDitchSlope:val})}
- 					style={styles.textInput}
- 					onBlur={()=>this.onBlurInputCheck('firstBeginDitchSlope')}
- 					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
- 					</TextInput>
- 					<Text>:</Text>
- 					<TextInput style={{width:40}}
- 					value={this.state.firstEndDitchSlope}
- 					onChangeText={(val)=>this.setState({firstEndDitchSlope:val})}
- 					style={styles.textInput}
- 					onBlur={()=>this.onBlurInputCheck('firstEndDitchSlope')}
- 					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
- 					</TextInput>
- 					<Text>-</Text>
- 					<TextInput style={{width:40}}
- 					value={this.state.secondBeginDitchSlope}
- 					onChangeText={(val)=>this.setState({secondBeginDitchSlope:val})}
- 					style={styles.textInput}
- 					onBlur={()=>this.onBlurInputCheck('secondBeginDitchSlope')}
- 					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
- 					</TextInput>
- 					<Text>:</Text>
- 					<TextInput style={{width:40}}
- 					value={this.state.secondEndDitchSlope}
- 					onChangeText={(val)=>this.setState({secondEndDitchSlope:val})}
- 					style={styles.textInput}
- 					onBlur={()=>this.onBlurInputCheck('secondEndDitchSlope')}
- 					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
- 					</TextInput>
- 
+					{ditchSlope1}
+					<Text style={styles.signText}>:</Text>
+					{ditchSlope2}
+					<Text style={styles.signText}>-</Text>
+					{ditchSlope3}
+					<Text style={styles.signText}>:</Text>
+					{ditchSlope4}
  		</View>	
  		<View style={styles.borderLine} />
 					
  		<View style={{flex:1,}}>
- 					<Text style={styles.labelText}>Bulk Size (ft):</Text>
+ 					<Text style={styles.labelText}>Block Size (ft):</Text>
  					{bulkSize}
  
  		</View>	
@@ -3424,13 +4458,19 @@ let dataSourceBB = [{cat:'Event Cost',
 		
  		<View style={{flex:1,}}>
  					<Text style={styles.labelText}>Annual Rainfall Range (in):</Text>	
- 					<TextInput style={{width:40}}
+ 					<TextInput 
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.endAnnualRainfall.focus()}}
+					ref={nextInput => this.startAnnualRainfall = nextInput}
+					keyboardType='numeric'
+					style={{width:40}}
  					maxLength={4}
  					value={this.state.startAnnualRainfall}
  					onChangeText={(val)=>this.setState({startAnnualRainfall:val},()=>{
  						this.annualRainfall();
  						this.rockfallHazardTotal(this.state.rockfallLandslide);
  						this.landslideHazardTotal(this.state.rockfallLandslide);
+						this.saveSiteInfo()
  					})}
  					style={styles.textInput}
  					onBlur={()=>{
@@ -3441,14 +4481,20 @@ let dataSourceBB = [{cat:'Event Cost',
  					}}
  					placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  					</TextInput>
- 					<Text>-</Text>
- 					<TextInput style={{width:40}}
+ 					<Text style={styles.signText}>-</Text>
+ 					<TextInput 
+					returnKeyType={'next'}
+					onSubmitEditing={() => {this.comments.focus()}}
+					ref={nextInput => this.endAnnualRainfall = nextInput}
+					keyboardType='numeric'
+					style={{width:40}}
  					maxLength={4}
  					value={this.state.endAnnualRainfall}
  					onChangeText={(val)=>this.setState({endAnnualRainfall:val},()=>{
  						this.annualRainfall();
  						this.rockfallHazardTotal(this.state.rockfallLandslide);
  						this.landslideHazardTotal(this.state.rockfallLandslide);
+						this.saveSiteInfo()
  					})}
  					style={styles.textInput}
  					onBlur={()=>{
@@ -3487,15 +4533,30 @@ let dataSourceBB = [{cat:'Event Cost',
  						</Picker>		   	
      	 
  		</View>	
- 		<View style={styles.borderLine} />		
-							
+ 		<View style={styles.borderLine} />	
+		
+		<View style={{flex:1,}}>
+							<Text style={styles.labelText}>Upload Images:</Text>
+							<Upload 
+							siteId={this.state.id} 
+							slopeEvent={this.state.slopeEvent}
+							/>
+
+		</View>	
+		<View style={styles.borderLine} />						
+		
  		<View style={{flex:1,}}>
  						<Text style={styles.labelText}>Comments:</Text>
  						<TextInput
+						returnKeyType={'next'}
+						onSubmitEditing={() => {this.fmlaName.focus()}}
+						ref={nextInput => this.comments = nextInput}	
  						multiline={true} 
  						numberOfLines={3}
  						value={this.state.comments}
- 						onChangeText={(val)=>this.setState({comments:val})}
+ 						onChangeText={(val)=>this.setState({comments:val},()=>{
+ 							this.saveSiteInfo();
+ 						})}
  						style={styles.textInput}
  						placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  						</TextInput>
@@ -3503,12 +4564,17 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={styles.borderLine} />	
 									
  		<View style={{flex:1,}}>
- 						<Text style={styles.labelText}>FMLA Name: </Text>
+ 						<Text style={styles.labelText}>Alternate database Name: </Text>
  						<TextInput 
+						returnKeyType={'next'}
+						onSubmitEditing={() => {this.fmlaId.focus()}}
+						ref={nextInput => this.fmlaName = nextInput}
  						multiline={true} 
  						numberOfLines={2}
  						value={this.state.fmlaName}
- 						onChangeText={(val)=>this.setState({fmlaName:val})}
+ 						onChangeText={(val)=>this.setState({fmlaName:val},()=>{
+ 							this.saveSiteInfo();
+ 						})}
  						style={styles.textInput}
  						placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  						</TextInput>
@@ -3516,12 +4582,17 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={styles.borderLine} />																															
 		
  		<View style={{flex:1,}}>
- 						<Text style={styles.labelText}>FMLA ID: </Text>
+ 						<Text style={styles.labelText}>Alternate database ID: </Text>
  						<TextInput 
+						returnKeyType={'next'}
+						onSubmitEditing={() => {this.fmlaDescription.focus()}}
+						ref={nextInput => this.fmlaId = nextInput}
  						multiline={true} 
  						numberOfLines={2}
  						value={this.state.fmlaId}
- 						onChangeText={(val)=>this.setState({fmlaId:val})}
+ 						onChangeText={(val)=>this.setState({fmlaId:val},()=>{
+ 							this.saveSiteInfo();
+ 						})}
  						style={styles.textInput}
  						placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  						</TextInput>
@@ -3529,12 +4600,17 @@ let dataSourceBB = [{cat:'Event Cost',
  		<View style={styles.borderLine} />
 		
  		<View style={{flex:1,}}>
- 						<Text style={styles.labelText}>FMLA Description: </Text>
+ 						<Text style={styles.labelText}>Alternate database Description: </Text>
  						<TextInput 
+						returnKeyType={'next'}
+						onSubmitEditing={() => {}}
+						ref={nextInput => this.fmlaDescription = nextInput}
  						value={this.state.fmlaDescription}
  						multiline={true} 
  						numberOfLines={3}
- 						onChangeText={(val)=>this.setState({fmlaDescription:val})}
+ 						onChangeText={(val)=>this.setState({fmlaDescription:val},()=>{
+ 							this.saveSiteInfo();
+ 						})}
  						style={styles.textInput}
  						placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  						</TextInput>
@@ -3553,59 +4629,78 @@ let dataSourceBB = [{cat:'Event Cost',
  		</Text>
 	
    	</View>	
- 		<View style={{flex:1,}}>
- 				<Text style={styles.labelText}>A. </Text>
+ 		<View style={styles.tableView}>
+ 				<Text style={styles.tableText}>A. Landslide-Roadway Width Affected</Text>
  				{tableA}
  				{inputA}
  
  		</View>	
  		<View style={styles.borderLine} />	
 		
- 		<View style={{flex:1,}}>
- 				<Text style={styles.labelText}>B. </Text>
+ 		<View style={styles.tableView}>
+ 				<Text style={styles.tableText}>B. Landslide - Slide/Erosion Effects</Text>
  				{tableB}
  				{inputB}	
  
  		</View>	
  		<View style={styles.borderLine} />				
 		
- 		<View style={{flex:1,}}>
- 				<Text style={styles.labelText}>C. </Text>
+ 		<View style={styles.tableView}>
+ 				<Text style={styles.tableText}>C. Landslide - Roadway Length Affected</Text>
  				{tableC}
  				{inputC}
  
  		</View>	
  		<View style={styles.borderLine} />	
 		
- 		<View style={{flex:1,}}>
- 				<Text style={styles.labelText}>D. </Text>
+ 		<View style={styles.tableView}>
+ 				<Text style={styles.tableText}>D. Rockfall - Ditch Effectiveness(Consider launch features) </Text>
  				{tableD}
  				{inputD}
  
  		</View>	
  		<View style={styles.borderLine} />	
 		
- 		<View style={{flex:1,}}>
- 				<Text style={styles.labelText}>E. </Text>
+ 		<View style={styles.tableView}>
+ 				<Text style={styles.tableText}>E. Rockfall - Rockfall History</Text>
  				{tableE}
  				{inputE}
  
  		</View>	
  		<View style={styles.borderLine} />	
 		
- 		<View style={{flex:1,}}>
- 				<Text style={styles.labelText}>F. </Text>
+ 		<View style={styles.tableView}>
+ 				<Text style={styles.tableText}>F. Rockfall - Block Size or Volume per Event</Text>
  				{tableF}
  				{inputF}
  	   			
  		</View>	
  		<View style={styles.borderLine} />
 		
- 		<View style={{flex:1,}}>
- 				<Text style={styles.labelText}>G. </Text>
-  	   			<Table height={220} columnWidth={60} columns={columns} dataSource={dataSourceG} />
+ 		<View style={styles.tableView}>
+ 				<Text style={styles.tableText}>G. All - Impact on Use</Text>
+      	  	  	<RadioForm
+    		  	 style={{marginLeft:40,}}
+                 radio_props={formSourceG}
+                 initial={this.state.impactOnUseKey}
+    			 formHorizontal={false}
+                 onPress={(value) => {
+    				   this.setState({impactOnUse:value},()=>{
+ 	   					this.saveSiteInfo();
+						this.prelimLandslideRating(this.state.rockfallLandslide);
+						this.prelimRockfallRating(this.state.rockfallLandslide);
+    				});
+    		 		}
+    		 		}
+    				onBlur={()=>{
+					this.onBlurInputCheck('G');
+					this.prelimLandslideRating(this.state.rockfallLandslide);
+					this.prelimRockfallRating(this.state.rockfallLandslide);
+    			}}
+    		 	/> 	
      
  				<TextInput 
+				keyboardType='numeric'
  				value={this.state.impactOnUse}
  				onChangeText={(val)=>this.setState({impactOnUse:val})}
  				style={styles.textInput}
@@ -3613,23 +4708,44 @@ let dataSourceBB = [{cat:'Event Cost',
  					this.onBlurInputCheck('G');
  					this.prelimLandslideRating(this.state.rockfallLandslide);
  					this.prelimRockfallRating(this.state.rockfallLandslide);
+					this.saveSiteInfo()
 					
  				}}
 				
- 				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  				</TextInput>
 				
  		</View>	
  		<View style={styles.borderLine} />
 		
- 		<View style={{flex:1,}}>
- 				<Text style={styles.labelText}>H. </Text>
-  	   			<Table height={220} columnWidth={60} columns={columns} dataSource={dataSourceH} />
+ 		<View style={styles.tableView}>
+ 				<Text style={styles.tableText}>H. All - AADT/Usage/Economic or Recreational Importance (highest rating applies)</Text>
+     	  	  	<RadioForm
+   		  	 	style={{marginLeft:40,}}
+                radio_props={formSourceH}
+                initial={this.state.aadtUsageKey}
+   			    formHorizontal={false}
+                onPress={(value) => {
+   				   this.setState({aadtUsage:value},()=>{
+	   					this.saveSiteInfo();
+						this.prelimLandslideRating(this.state.rockfallLandslide);
+						this.prelimRockfallRating(this.state.rockfallLandslide);
+   				});
+   		 		}
+   		 		}
+   				onBlur={()=>{
+					this.onBlurInputCheck('H');
+					this.prelimLandslideRating(this.state.rockfallLandslide);
+					this.prelimRockfallRating(this.state.rockfallLandslide);
+   			 }}
+   		 	 /> 	
  			<CheckBox
  			    style={{flex: 1, padding: 10}}
  			    onClick={()=>{
  					this.setState({aadtUsageCalcCheckbox:!this.state.aadtUsageCalcCheckbox},()=>{
  						this.prelimAadt(this.state.aadtUsageCalcCheckbox);
+						this.prelimRockfallRating(this.state.rockfallLandslide);
+						this.prelimLandslideRating(this.state.rockfallLandslide);
  						this.setState({editable:!this.state.editable});
  						this.onBlurInputCheck('aadtUsageCalcCheckbox');
  					});
@@ -3640,17 +4756,21 @@ let dataSourceBB = [{cat:'Event Cost',
  			    leftText={'Use AADT in calculation'}
  			/>
  				<TextInput 
+				keyboardType='numeric'
  				value={this.state.aadtUsage}
- 				onChangeText={(val)=>this.setState({aadtUsage:val})}
- 				style={styles.textInput}
+ 				onChangeText={(val)=>this.setState({aadtUsage:val},()=>{
+ 					this.saveSiteInfo()
+ 				})}
+ 				style={styles.textInputGray}
  				editable={this.state.editable}
  				onBlur={()=>{
  					this.onBlurInputCheck('H');
  					this.prelimLandslideRating(this.state.rockfallLandslide);
  					this.prelimRockfallRating(this.state.rockfallLandslide);
+					this.saveSiteInfo()
 					
  				}}
- 				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  				</TextInput>
  
  		</View>	
@@ -3677,9 +4797,11 @@ let dataSourceBB = [{cat:'Event Cost',
  				<TextInput 
  				value={this.state.prelimRating}
  				editable={false}
- 				onChangeText={(val)=>this.setState({prelimRating:val})}
- 				style={styles.textInput}
- 				placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 				onChangeText={(val)=>this.setState({prelimRating:val},()=>{
+ 					this.saveSiteInfo()
+ 				})}
+ 				style={styles.textInputGray}
+ 				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  				</TextInput>
  
  		</View>	
@@ -3694,13 +4816,35 @@ let dataSourceBB = [{cat:'Event Cost',
 	
    	</View>	
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>I. </Text>
- 		<Table height={220} columnWidth={60} columns={columns} dataSource={dataSourceI} />
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>I. All - Slope Drainage</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceI}
+       	initial={this.state.slopeDrainageKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({slopeDrainage:value},()=>{
+			    this.saveSiteInfo();
+				this.rockfallHazardTotal(this.state.rockfallLandslide);
+				this.landslideHazardTotal(this.state.rockfallLandslide);
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('I');
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			this.landslideHazardTotal(this.state.rockfallLandslide);
+		}}
+ 		/> 	
+ 		
 
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.slopeDrainage}
- 		onChangeText={(val)=>this.setState({slopeDrainage:val})}
+ 		onChangeText={(val)=>this.setState({slopeDrainage:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
  		onBlur={()=>{
  			this.onBlurInputCheck('I');
@@ -3708,19 +4852,40 @@ let dataSourceBB = [{cat:'Event Cost',
  			this.landslideHazardTotal(this.state.rockfallLandslide);
 			
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
  	<View style={styles.borderLine} />
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>J. </Text>
- 		<Table height={100} columnWidth={60} columns={columns} dataSource={dataSourceJ} />
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>J. All - Annual Rainfall</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceJ}
+       	initial={this.state.hazardRatingAnnualRainfallKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({hazardRatingAnnualRainfall:value},()=>{
+			    this.saveSiteInfo();
+				this.rockfallHazardTotal(this.state.rockfallLandslide);
+				this.landslideHazardTotal(this.state.rockfallLandslide);
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('J');
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			this.landslideHazardTotal(this.state.rockfallLandslide);
+		}}
+ 		/> 	
 
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.hazardRatingAnnualRainfall}
- 		onChangeText={(val)=>this.setState({hazardRatingAnnualRainfall:val})}
+ 		onChangeText={(val)=>this.setState({hazardRatingAnnualRainfall:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
  		onBlur={()=>{
  			this.onBlurInputCheck('J');
@@ -3728,27 +4893,49 @@ let dataSourceBB = [{cat:'Event Cost',
  			this.landslideHazardTotal(this.state.rockfallLandslide);
 			
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
  	<View style={styles.borderLine} />
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>K. </Text>
- 		<Table height={130} columnWidth={60} columns={columns} dataSource={dataSourceK} />
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>K. All - Slope Height (rockfall)/Axial Length of slide (landslide)</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceK}
+       	initial={this.state.hazardRatingSlopeHeightAxialLengthKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({hazardRatingSlopeHeightAxialLength:value},()=>{
+			    this.saveSiteInfo();
+				this.rockfallHazardTotal(this.state.rockfallLandslide);
+				this.landslideHazardTotal(this.state.rockfallLandslide);
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('K');
+			this.rockfallHazardTotal(this.state.rockfallLandslide);
+			this.landslideHazardTotal(this.state.rockfallLandslide);
+		}}
+ 		/> 
 
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.hazardRatingSlopeHeightAxialLength}
- 		onChangeText={(val)=>this.setState({hazardRatingSlopeHeightAxialLength:val})}
+ 		onChangeText={(val)=>this.setState({hazardRatingSlopeHeightAxialLength:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
+		editable={this.state.aadtCheck}
  		onBlur={()=>{
  			this.onBlurInputCheck('K');
  			this.rockfallHazardTotal(this.state.rockfallLandslide);
  			this.landslideHazardTotal(this.state.rockfallLandslide);
 			
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
@@ -3758,24 +4945,24 @@ let dataSourceBB = [{cat:'Event Cost',
  		<Text style={styles.labelText}>Select One Unstable Slope Type </Text>
  		<Text style={styles.labelText}>Landslides / Erosion </Text>
 		
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>L. </Text>
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>L. Thaw Stability</Text>
  		{tableL} 
  		{inputL}
 		
  	</View>	
  	<View style={styles.borderLine} />
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>M. </Text>
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>M. Instability - Related Maint. Frequency</Text>
  		{tableM} 
  		{inputM}
 		
  	</View>	
  	<View style={styles.borderLine} />
 		
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>N. </Text>
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>N. Movement History</Text>
  		{tableN} 
  		{inputN}
 		
@@ -3784,8 +4971,8 @@ let dataSourceBB = [{cat:'Event Cost',
 	
  	<Text style={styles.labelText}>Rockfalls </Text>
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>O. </Text>
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>O. Rockfall-Related Maint. Frequency</Text>
  		{tableO} 
  		{inputO}
 		
@@ -3794,16 +4981,16 @@ let dataSourceBB = [{cat:'Event Cost',
 	
  	<Text style={styles.labelText}>Geological Character Case 1 </Text>
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>P. </Text>
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>P. Structural Condition</Text>
  		{tableP} 
  		{inputP}
 		
  	</View>	
  	<View style={styles.borderLine} />
 		
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>Q. </Text>
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>Q. Rock Friction</Text>
  		{tableQ} 
  		{inputQ}
 		
@@ -3813,8 +5000,8 @@ let dataSourceBB = [{cat:'Event Cost',
 	
  	<Text style={styles.labelText}>Geological Character Case 2 </Text>
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>R. </Text>
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>R. Structural Condition</Text>
  		{tableR} 
  		{inputR}
 		
@@ -3822,8 +5009,8 @@ let dataSourceBB = [{cat:'Event Cost',
  	</View>	
  	<View style={styles.borderLine} />
 		
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>S. </Text>
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>S. Diff. in Erosion Rates</Text>
  		{tableS} 
  		{inputS}
 		
@@ -3856,32 +5043,71 @@ let dataSourceBB = [{cat:'Event Cost',
  		</Text>
    	</View>	
 		
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>V. </Text>
- 		<Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceV} />
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>V. Route Width or Trail Width</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceV}
+       	initial={this.state.routeTrailWidthKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({routeTrailWidth:value},()=>{
+			    this.saveSiteInfo();
+				this.riskTotal();
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('V');
+			this.riskTotal();
+		}}
+ 		/> 
 
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.routeTrailWidth}
- 		onChangeText={(val)=>this.setState({routeTrailWidth:val})}
+ 		onChangeText={(val)=>this.setState({routeTrailWidth:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
+		editable={this.state.aadtCheck}
  		onBlur={()=>{
  			this.onBlurInputCheck('V');
  			this.riskTotal();
 		    
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
  	<View style={styles.borderLine} />
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>W. </Text>
- 		<Table height={110} columnWidth={60} columns={columns} dataSource={dataSourceW} />
-
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>W. Human Exposure Factor</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceW}
+       	initial={this.state.humanExFactorKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({humanExFactor:value},()=>{
+			    this.saveSiteInfo();
+				this.riskTotal();
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('W');
+			this.riskTotal();
+		}}
+ 		/> 
+		
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.humanExFactor}
- 		onChangeText={(val)=>this.setState({humanExFactor:val})}
+ 		onChangeText={(val)=>this.setState({humanExFactor:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
  		onBlur={()=>{
  			this.onBlurInputCheck('W');
@@ -3889,102 +5115,197 @@ let dataSourceBB = [{cat:'Event Cost',
  			this.riskTotal();
 			
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
  	<View style={styles.borderLine} />
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>X. </Text>
- 		<Table height={200} columnWidth={60} columns={columns} dataSource={dataSourceX} />
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>X. % of Decision Sight Distance (Judge avoidance ability on trails)</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceX}
+       	initial={this.state.percentDsdKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({percentDsd:value},()=>{
+			    this.saveSiteInfo();
+				this.riskTotal();
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('X');
+			this.riskTotal();
+		}}
+ 		/> 
 
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.percentDsd}
- 		onChangeText={(val)=>this.setState({percentDsd:val})}
+ 		onChangeText={(val)=>this.setState({percentDsd:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
  		onBlur={()=>{
  			this.onBlurInputCheck('X');
  			this.riskTotal();
 			
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
  	<View style={styles.borderLine} />
 		
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>Y. </Text>
- 		<Table height={200} columnWidth={60} columns={columns} dataSource={dataSourceY} />
-
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>Y. Right of Way (R/W) Impacts (If Left Unattended)</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceY}
+       	initial={this.state.rWImpactsKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({rWImpacts:value},()=>{
+			    this.saveSiteInfo();
+				this.riskTotal();
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('Y');
+			this.riskTotal();
+		}}
+ 		/> 
+		
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.rWImpacts}
- 		onChangeText={(val)=>this.setState({rWImpacts:val})}
+ 		onChangeText={(val)=>this.setState({rWImpacts:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
  		onBlur={()=>{
  			this.onBlurInputCheck('Y');
  			this.riskTotal();
 			
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
  	<View style={styles.borderLine} />
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>Z. </Text>
- 		<Table height={200} columnWidth={60} columns={columns} dataSource={dataSourceZ} />
-
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>Z. Environmental/Cultural Impacts if Left Unattended</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceZ}
+       	initial={this.state.enviroCultImpactsKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({enviroCultImpacts:value},()=>{
+			    this.saveSiteInfo();
+				this.riskTotal();
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('Z');
+			this.riskTotal();
+		}}
+ 		/> 
+		
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.enviroCultImpacts}
- 		onChangeText={(val)=>this.setState({enviroCultImpacts:val})}
+ 		onChangeText={(val)=>this.setState({enviroCultImpacts:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
  		onBlur={()=>{
  			this.onBlurInputCheck('Z');
  			this.riskTotal();
 			
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
  	<View style={styles.borderLine} />
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>AA. </Text>
- 		<Table height={150} columnWidth={60} columns={columns} dataSource={dataSourceAA} />
-
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>AA. Maintenance Complexity</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceAA}
+       	initial={this.state.maintComplexityKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({maintComplexity:value},()=>{
+			    this.saveSiteInfo();
+				this.riskTotal();
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('AA');
+			this.riskTotal();
+		}}
+ 		/> 
+		
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.maintComplexity}
- 		onChangeText={(val)=>this.setState({maintComplexity:val})}
+ 		onChangeText={(val)=>this.setState({maintComplexity:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
  		onBlur={()=>{
  			this.onBlurInputCheck('AA');
  			this.riskTotal();
 			
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
  	<View style={styles.borderLine} />
 	
- 	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>BB. </Text>
- 		<Table height={90} columnWidth={60} columns={columns} dataSource={dataSourceBB} />
-
+ 	<View style={styles.tableView}>
+ 		<Text style={styles.tableText}>BB. Event Cost</Text>
+ 	  	<RadioForm
+  	 	style={{marginLeft:40,}}
+       	radio_props={formSourceBB}
+       	initial={this.state.eventCostKey}
+	 	formHorizontal={false}
+       	onPress={(value) => {
+		   this.setState({eventCost:value},()=>{
+			    this.saveSiteInfo();
+				this.riskTotal();
+		});
+ 		}
+ 		}
+		onBlur={()=>{
+			this.onBlurInputCheck('BB');
+			this.riskTotal();
+		}}
+ 		/> 
+		
  		<TextInput 
+		keyboardType='numeric'
  		value={this.state.eventCost}
- 		onChangeText={(val)=>this.setState({eventCost:val})}
+ 		onChangeText={(val)=>this.setState({eventCost:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
  		style={styles.textInput}
  		onBlur={()=>{
  			this.onBlurInputCheck('BB');
  			this.riskTotal();
 			
  		}}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 		
  	</View>	
@@ -3996,23 +5317,25 @@ let dataSourceBB = [{cat:'Event Cost',
  		<TextInput 
  		value={this.state.riskTotal}
  		editable={false}
- 		onChangeText={(val)=>this.setState({riskTotal:val})}
- 		style={styles.textInput}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		onChangeText={(val)=>this.setState({riskTotal:val},()=>{
+ 			this.saveSiteInfo()
+ 		})}
+ 		style={styles.textInputGray}
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 
  	</View>	
  	<View style={styles.borderLine} />
 		
  	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>TOTAL USMP SCORE: LANDSLIDES (T+CC) OR ROCKFALL (U+CC): </Text>
+ 		<Text style={styles.labelText}>TOTAL USMP SCORE: LANDSLIDES (T+CC) OR ROCKFALL (U+CC): Good ({'<'}200 pts) | Fair (200-400 pts) | Poor (>400 pts)</Text>
 
  		<TextInput 
  		value={this.state.totalScore}
  		editable={false}
  		onChangeText={(val)=>this.setState({totalScore:val})}
- 		style={styles.textInput}
- 		placeholder='Score' placeholderTextColor='blue' underLineColor='transparent'>
+ 		style={styles.textInputGray}
+ 		placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
  		</TextInput>
 
  	</View>	
@@ -4020,12 +5343,6 @@ let dataSourceBB = [{cat:'Event Cost',
 	<View style={{flex:1,height:250}}>
 	</View>		
 		</ScrollView>
-			
-      	<View style={styles.footer}>
-     		<TouchableHighlight style={styles.button} onPress={this.onButtonPress.bind(this)}>
-				<Text style={styles.text}>Submit</Text>
-			</TouchableHighlight>
-      	</View>
       </View>
     );
   }
@@ -4036,34 +5353,49 @@ const styles = StyleSheet.create({
       flex: 1,
    
     },
+    header: {
+		flexDirection: 'row',
+      	justifyContent: 'center',
+      	alignItems: 'center',
+      	backgroundColor: '#006400',
+  		borderBottomWidth: 1,
+  		borderBottomColor:'#ddd',
+    },
     headerText: {
       fontSize: 18,
       color: 'white',
-      padding: 4,
-  	  marginRight:160,  
-    },
-    header: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#006400',
-  	borderBottomWidth: 1,
-  	borderBottomColor:'#ddd',
+      padding: 0,
+	  marginTop:20, 
+  	  marginRight:Dimensions.get('window').width*0.43,  
     },
     sectionText: {
       fontSize: 16,
-  	fontWeight:'bold',  
+  	  fontWeight:'bold',  
       color: 'black',
       padding: 4,
     },
     section: {
-  	height:30,  
+  	  height:30,  
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#ddd9c3',
-  	borderBottomWidth: 1,
-  	borderBottomColor:'#ddd',
+  	  borderBottomWidth: 1,
+  	  borderBottomColor:'#ddd',
     },
     textInput:{
+  	  height:40,
+  	  borderWidth:0.5,
+  	  borderColor:'#0f0f0f',
+  	  //alignSelf:'stretch',
+  	  color:'blue',
+  	  backgroundColor: 'white',
+  	  borderTopWidth: 2,
+  	  borderTopColor: '#ededed',
+  	  fontSize: 16,
+	  marginLeft:20,
+	  marginRight:20,	
+    },
+    textInputGray:{
   	  height:40,
   	  borderWidth:0.5,
   	  borderColor:'#0f0f0f',
@@ -4073,7 +5405,8 @@ const styles = StyleSheet.create({
   	  borderTopWidth: 2,
   	  borderTopColor: '#ededed',
   	  fontSize: 16,
-	  
+	  marginLeft:20,
+	  marginRight:20,	
     },
     footer:{
   	  backgroundColor: 'white',
@@ -4098,15 +5431,30 @@ const styles = StyleSheet.create({
   	  fontSize:18,
   	  padding:3,
     },
+    signText:{
+    	marginLeft:20,
+    },
     picker:{
     	  height:150,
   	  width:150,
     },
     labelText:{
       fontSize: 16,
+  	  fontWeight:'bold',  
+      color: 'black',
+      padding: 4,
+	  marginLeft:15, 	
+    },
+    tableText:{
+      fontSize: 16,
   	fontWeight:'bold',  
       color: 'black',
       padding: 4,
+  	marginLeft:0,  
+    },
+    tableView:{
+    	flex:1,
+  	marginLeft:20,
     },
     borderLine:{
     	borderBottomColor: 'black', 

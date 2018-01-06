@@ -8,15 +8,14 @@ import {
 } from 'react-native';
 
 export default class Textinput extends Component {
-	<TextInput
-	//multiline={true} 
-	//numberOfLines={3}
-	//value={this.state.comments}
-	//onChangeText={(val)=>this.setState({comments:val})}
-	style={styles.textInput}
-	placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
-	</TextInput>
-	
+	render(){
+		return(
+			<TextInput
+			style={styles.textInput}
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>
+		);
+	}	
 }
 
 const styles = StyleSheet.create({

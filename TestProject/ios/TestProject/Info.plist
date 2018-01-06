@@ -8,6 +8,8 @@
 	<string>USMP</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
 	<key>CFBundleIcons</key>
 	<dict/>
 	<key>CFBundleIcons~ipad</key>
@@ -25,9 +27,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3</string>
+	<string>15</string>
 	<key>LSApplicationCategoryType</key>
-	<string/>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -41,8 +43,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>You can take a picture and upload it</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string>To store the position of roclfall/landslide area</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo will be uploaded to the server</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>

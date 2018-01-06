@@ -49,16 +49,15 @@ export default class Home extends Component {
       <View style={styles.container}>
       	<View style={styles.header}>
   	  		<Icon name="menu" 
-				style={{marginTop:20,marginRight:30}} 
+				style={{marginTop:20,marginRight:Dimensions.get('window').width*0.27,color:'white'}} 
 				size={40} 
 				backgroundColor="#ffffff" 
-				onPress={this.openDrawer}>
- 				<Text style={styles.headerText} 
+				onPress={this.openDrawer}>	
+			</Icon>
+				<Text style={styles.headerText} 
 						onPress={() => this.props.navigation.navigate('DrawerOpen')}>
 						Unstable Slope Management System
-				</Text>
-			</Icon>
-     		
+				</Text>	
 		
       	</View>
 			<ImageSlider 
@@ -82,6 +81,9 @@ export default class Home extends Component {
 				 <Text style={styles.welcomeText} >   
 				   Hello User, welcome to the mobile version of the site. Please tap on the menu icon or slide to right to see menu and access the site.
       			 </Text>
+				 <Text style={styles.warningText} >   
+			
+				   </Text>
 		 		  
 	  </View>
     );
@@ -93,24 +95,32 @@ const styles = StyleSheet.create({
     flex: 1,
    
   },
-  headerText: {
-    fontSize: 18,
-    color: 'white',
-    padding: 0,
-	  marginTop:-20,    
-  },
-  welcomeText: {
-    fontSize: 18,
-    color: 'green',
-    paddingTop: 26,
-  },
   header: { 
+	flexDirection: 'row',  
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#006400',
 	borderBottomWidth: 1,
 	borderBottomColor:'#ddd',
   },
+  headerText: {
+    fontSize: 18,
+    color: 'white',
+    padding: 0,
+	marginTop:20,    
+	marginRight:Dimensions.get('window').width*0.27,  
+  },
+  welcomeText: {
+    fontSize: 18,
+    color: 'green',
+    paddingTop: 26,
+  },
+  warningText: {
+    fontSize: 18,
+    color: 'red',
+    paddingTop: 226,
+  },
+  
   images:{
 	  flex:1,
   },
