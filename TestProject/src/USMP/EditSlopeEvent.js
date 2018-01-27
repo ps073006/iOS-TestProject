@@ -109,7 +109,7 @@ const CauseOfEvent = [
   {label: 'Leaking pipe', value: 'leaky_pipe_checkbox' },	
   {label: 'Mining', value: 'mining_checkbox' },
   {label: 'Construction', value: 'construction_checkbox' },	
-  {label: 'Dam embankement collapse', value: 'dam_embankment_collapse_checkbox' },
+  {label: 'Dam embankment collapse', value: 'dam_embankment_collapse_checkbox' },
   {label: 'No obvious cause', value: 'not_obvious_checkbox' },
   {label: 'Unknown cause', value: 'unknown_checkbox' },	
   {label: 'Other (Please describe in Observer Comments)', value: 'other_checkbox' }
@@ -1244,7 +1244,7 @@ export default class NewMaintenance extends Component {
       		</View>	
 			
 			<View style={{flex:1, }}>
-	  	  	<Text style={styles.labelText}>Hazard Type:</Text>
+	  	  	<Text style={styles.labelText}>Hazard Type:(Select all that apply)</Text>
 			<SelectMultiple
             items={hazardType}
             selectedItems={this.state.hazardTypeVal}
@@ -1464,7 +1464,7 @@ export default class NewMaintenance extends Component {
 			<View style={styles.borderLine} />	
 			
  			<View style={{flex:1}}>
-			<Text style={styles.labelText}>Length of Effected Road/Trail (ft): (1 m = 3 ft):</Text>	
+			<Text style={styles.labelText}>Length of Affected Road/Trail (ft): (1 m = 3 ft):</Text>	
 			<TextInput
 			value={this.state.affectedLength}
 			returnKeyType={'next'}

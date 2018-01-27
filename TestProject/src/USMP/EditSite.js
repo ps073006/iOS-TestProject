@@ -97,8 +97,8 @@ const hazardType = [
  const formSourceB = [
    {value: '3', label: '3 : Visible crack or slight deposit of material / minor erosion'},
    {value: '9', label: '9 : 1 inch offset, or 6-inch deposit of material / major erosion will affect travel in < 5 years'},
-   {value: '27', label: '27 : 2-inch offset or 12-inch deposity / mod. erosion impacting travel annually'},
-   {value: '81', label: '81 : 4-inch offset or 24-inch deposity / severe erosion impacting travel consistently'}
+   {value: '27', label: '27 : 2-inch offset or 12-inch deposit / mod. erosion impacting travel annually'},
+   {value: '81', label: '81 : 4-inch offset or 24-inch deposit / severe erosion impacting travel consistently'}
  ];
  
  const formSourceC = [
@@ -145,7 +145,7 @@ const hazardType = [
  
  const formSourceI = [
    {value: '3', label: '3 : Slope appears dry or well drained; surface runoff well controlled'},
-   {value: '9', label: '9 : Intermittent water on slope; mod. not well drained; or surface runoff moderately controlled'},
+   {value: '9', label: '9 : Intermittent water on slope; mod. well drained; or surface runoff moderately controlled'},
    {value: '27', label: '27 : Water usually on slope; poorly drained; or surface runoff poorly controlled'},
    {value: '81', label: '81 : Water always on slope; very poorly drained; or surface water runoff control not present'}
  ];
@@ -221,10 +221,10 @@ const hazardType = [
  ];
  
  const formSourceV = [
-   {value: '3', label: '3 : 36ft <br />14ft'},
-   {value: '9', label: '9 : 28ft <br />10ft'},
-   {value: '27', label: '27 : 20ft <br />6ft'},
-   {value: '81', label: '81 : 12ft <br />2ft'}
+   {value: '3', label: '3 : 36ft 14ft'},
+   {value: '9', label: '9 : 28ft 10ft'},
+   {value: '27', label: '27 : 20ft 6ft'},
+   {value: '81', label: '81 : 12ft 2ft'}
  ];
  
  const formSourceW = [
@@ -3584,7 +3584,8 @@ let dataSourceA = [{cat:'Landslide-Roadway Width Affected',
     			  						{ label: 'Rotational', value: '9' },
     			  						{ label: 'Debris Flow', value: '10' },
     			  						{ label: 'Shallow Slump', value: '11' },
-				 	 					{ label: 'Erosional Failure', value: '12' },];
+				 	 					{ label: 'Erosional Failure', value: '12' },
+			  							{ label: 'Above, Below, or Across Route', value: '13' },];
   			 hazardType = <SelectMultiple
              items={filteredAssets}
              selectedItems={this.state.hazardType}
@@ -4007,7 +4008,7 @@ let dataSourceA = [{cat:'Landslide-Roadway Width Affected',
   		<View style={styles.borderLine} />	
 			 
  		<View style={{flex:1,}}>
-    		  <Text style={styles.labelText}>Hazard Type:</Text>
+    		  <Text style={styles.labelText}>Hazard Type:(Select all that apply within one of the categories)</Text>
  				{hazardType}
      	 
  	    </View>	
@@ -4979,7 +4980,7 @@ let dataSourceA = [{cat:'Landslide-Roadway Width Affected',
  	</View>	
  	<View style={styles.borderLine} />	
 	
- 	<Text style={styles.labelText}>Geological Character Case 1 </Text>
+ 	<Text style={styles.labelText}>Geologic Character Case 1 </Text>
 	
  	<View style={styles.tableView}>
  		<Text style={styles.tableText}>P. Structural Condition</Text>
@@ -4998,7 +4999,7 @@ let dataSourceA = [{cat:'Landslide-Roadway Width Affected',
  	</View>	
  	<View style={styles.borderLine} />
 	
- 	<Text style={styles.labelText}>Geological Character Case 2 </Text>
+ 	<Text style={styles.labelText}>Geologic Character Case 2 </Text>
 	
  	<View style={styles.tableView}>
  		<Text style={styles.tableText}>R. Structural Condition</Text>
@@ -5028,7 +5029,7 @@ let dataSourceA = [{cat:'Landslide-Roadway Width Affected',
  	<View style={styles.borderLine} />
 		
  	<View style={{flex:1,}}>
- 		<Text style={styles.labelText}>U. ROCKFALL HAZARD TOTAL (D+E+F+I+J+K+O+(greater of P+Q or R+S)):  </Text>
+ 		<Text style={styles.labelText}>U. ROCKFALL HAZARD TOTAL (D+E+F+I+J+K+O+(greatest of P+Q or R+S)):  </Text>
  		{hazardRockTotal}
 
  	</View>	

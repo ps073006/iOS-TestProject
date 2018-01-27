@@ -923,6 +923,22 @@ export default class NewMaintenance extends Component {
 			</View>	
 			<View style={styles.borderLine} />	
 			
+			<View style={{flex:1,}}>
+			<Text style={styles.labelText}>Notes:</Text>
+			<TextInput 
+			returnKeyType={'next'}
+			onSubmitEditing={() => {//this.total.focus();
+			}}
+			ref={nextInput => this.eventDesc = nextInput}
+			multiline={true} 
+			numberOfLines={3}
+			style={styles.textInput}
+			placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
+			</TextInput>
+
+			</View>	
+			<View style={styles.borderLine} />	
+			
 			<View style={{flex:1, }}>
 	  	  	<Text style={styles.labelText}>Type of Event:</Text>
   	  	  	<RadioForm
@@ -962,11 +978,11 @@ export default class NewMaintenance extends Component {
 				placeholder='' placeholderTextColor='blue' underLineColor='transparent'>
 				</TextInput>
  
-				</View>	
-				<View style={styles.borderLine} />	
+			</View>	
+			<View style={styles.borderLine} />	
 	  
     		<View style={{flex:1}}>
-		 	<Text style={styles.labelText}>Date:</Text>
+		 	<Text style={styles.labelText}>Date(s) of Maintenance:</Text>
     	 	<DatePicker
          	style={{width: 200, paddingBottom:5}}
          	date={this.state.date}
